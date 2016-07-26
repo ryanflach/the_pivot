@@ -25,4 +25,10 @@ class Cart
       end
     end
   end
+
+  def items
+    contents.map do |item_id, quantity|
+      {Item.find(item_id.to_i) => quantity}
+    end
+  end
 end

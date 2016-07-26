@@ -47,4 +47,14 @@ RSpec.describe "Cart", type: :model do
 
     expect(cart.total_items).to eq(0)
   end
+
+  it "should be able to return cart item objects and quantity" do
+    create_list(:item, 2)
+    cart = Cart.new(nil)
+    cart.add_item(Item.first.id)
+    cart.add_item(Item.last.id)
+    
+    expect(cart.items.first.keys.first.title).to eq(Item.first.title)
+    expect(cart.items.first.values.first).to eq(1)
+  end
 end
