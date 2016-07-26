@@ -3,7 +3,7 @@ FactoryGirl.define do
     title
     description "Definitely used by this celebrity at least once"
     price 199.99
-    # image_path
+    image_path
     category
     celebrity
   end
@@ -28,7 +28,7 @@ FactoryGirl.define do
     "Item_#{n}"
   end
 
-  # sequence :image_path do |n|
-  #   "https://robohash.org/#{n}"
-  # end
+  sequence :image_path do |n|
+    "https://robohash.org/#{n}"
+  end
 end
