@@ -21,6 +21,5 @@ RSpec.feature "User can see all items in a category" do
 
     expect(page).to have_content "Knife"
     expect(page).to have_content "Bowl"
-    save_and_open_page
   end
 end
