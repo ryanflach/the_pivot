@@ -18,11 +18,11 @@ end
 
 20.times do
   Item.create(
-      title: Faker::Commerce.product_name,
-      description: Faker::Hipster.paragraph,
-      price: Faker::Commerce.price.to_f,
-      image_path: Faker::Avatar.image,
-      category_id: Category.all.sample.id,
-      celebrity_id: Celebrity.all.sample.id
-            )
+    title: Faker::Commerce.product_name,
+    description: Faker::Hipster.paragraph,
+    price: Faker::Commerce.price.to_f,
+    image_path: Faker::Avatar.image,
+    category_id: Category.all.sample.id,
+    celebrity_id: Celebrity.all.sample.id
+  )
 end
