@@ -15,6 +15,9 @@
     <p>
       $ <%= item.price %>
     </p>
+    <%= content_tag :div, id: "item-#{item.id}", class: 'text-center' do %>
+      <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'btn btn-default' %>
+    <% end %>
   </div>
   <% end %>
 </div>

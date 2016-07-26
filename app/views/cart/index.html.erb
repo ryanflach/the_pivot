@@ -10,12 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <% @cart.items.each do |item, quantity| %>
+      <% @cart.items.each do |item| %>
       <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= quantity %></td>
-        <td><%= item.price %></td>
+        <td><%= item.keys.first.title %></td>
+        <td><%= item.keys.first.description %></td>
+        <td><%= item.values.first %></td>
+        <td><%= item.keys.first.price %></td>
       </tr>
       <% end %>
       <tr>
