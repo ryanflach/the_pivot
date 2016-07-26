@@ -7,5 +7,4 @@ class Item < ApplicationRecord
   def celebrity_name
     celebrity.name
   end
-
 end
