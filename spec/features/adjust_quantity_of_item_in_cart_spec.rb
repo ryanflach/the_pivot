@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Adjust the quantity of an item in the cart' do
-  xscenario 'visitor with item in cart visits the cart page' do
+  scenario 'visitor with item in cart visits the cart page' do
     # Background: My cart has an item in it
     item = create(:item)
     visit items_path
@@ -19,8 +19,8 @@ RSpec.feature 'Adjust the quantity of an item in the cart' do
     # And when I increase the quantity
     within("#item-#{item.id}") do
       select(3, from: 'Quantity')
+      click_on "Update Qty"
     end
-    click_on 'Update Cart'
     # Then my current page should be '/cart'
     expect(current_path).to eq(cart_index_path)
     # And that item's quantity should reflect the increase
@@ -34,8 +34,8 @@ RSpec.feature 'Adjust the quantity of an item in the cart' do
     # And when I decrease the quantity
     within("#item-#{item.id}") do
       select(1, from: 'Quantity')
+      click_on "Update Qty"
     end
-    click_on 'Update Cart'
     # Then my current page should be '/cart'
     expect(current_path).to eq(cart_index_path)
     # And that item's quantity should reflect the decrease
