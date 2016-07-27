@@ -1,0 +1,22 @@
+<div id="items_list" class="col-md-offset-1">
+  <% @items.each do |item| %>
+  <div class = "well col-md-3 text-center" id="item-<%= item.id %>">
+    <p>
+      <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail') %>
+    </p>
+    <p>
+    <a id="popoverData" class="btn" href="#" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Backstory" data-trigger="hover">
+      <%= item.title %>
+    </a>
+    <p>
+      Celebrity: <%= item.celebrity_name %>
+    </p>
+    <p>
+      $ <%= item.price %>
+    </p>
+    <%= content_tag :div, class: 'text-center' do %>
+      <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'btn btn-default' %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
