@@ -1,19 +1,55 @@
 <div class="navbar navbar-nav navbar-fixed-left">
   <span class="navbar-brand"></span>
   <ul class="nav navbar-nav">
-   <li><a href="/"><i class="fa fa-home"></i> Home </a></li>
-   <li><a href="/items"><i class="fa fa-list"></i> All Items </a></li>
-   <li><a href="/"><i class="fa fa-heart"></i> Placeholder </a></li>
-   <li><a href="/"><i class="fa fa-heart"></i> Placeholder </a></li>
-   <li><a href="/"><i class="fa fa-envelope"></i> Email Us </a></li>
+    <li>
+      <%= link_to root_path do %>
+        <i class="fa fa-home"></i> Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to items_path do %>
+        <i class="fa fa-list"></i> All Items
+      <% end %>
+    </li>
+    <li>
+      <%= link_to root_path do %>
+        <i class="fa fa-heart"></i> Placeholder
+      <% end %>
+    </li>
+    <li>
+      <%= link_to root_path do %>
+        <i class="fa fa-heart"></i> Placeholder
+      <% end %>
+    </li>
+    <li>
+      <%= link_to root_path do %>
+        <i class="fa fa-envelope"></i> Email Us
+      <% end %>
+    </li>
   </ul>
 </div>
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-brand">
-    <%= image_tag 'logo-big.png', class: 'logo' %>
+    <%= link_to image_tag('logo-big.png', class: 'logo'), root_path %>
   </div>
   <ul class="nav navbar-nav navbar-right">
-    <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart: **</a></li>
-    <li><a href="/"><i class="fa fa-sign-out"></i> Login/out </a></li>
+    <li>
+      <%= link_to cart_index_path do %>
+        <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_items %>
+      <% end %>
+    </li>
+    <% if current_user %>
+      <li>
+        <%= link_to logout_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i> Logout
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to login_path do %>
+          <i class="fa fa-sign-in"></i> Login
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>
