@@ -5,4 +5,65 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
-  
+  body
+  {
+    font-family: 'Droid Sans', sans-serif;
+    padding-top: 80px;
+  }
+
+.navbar {
+    background-color: #F8F8F8;
+    border: none;
+    position: fixed;
+    width: 100%;
+}
+.navbar-fixed-left {
+  width: 130px;
+  position: fixed;
+  border-radius: 0;
+  height: 100%;
+  padding-top: 50px;
+  padding-left: 0px;
+}
+
+.navbar-default {
+  min-height:80px;
+}
+
+.navbar-default > ul {
+ margin: 30px 0 0;
+}
+
+
+.navbar-fixed-left .navbar-nav > li {
+  float: none;
+  width: 139px;
+}
+
+/*.navbar-fixed-left + .container {
+  padding-left: 160px;
+}*/
+
+/*.container {
+  height: 1000px;
+}*/
+
+.center {
+    right:50%;
+    bottom: 50%;
+    transform: translate(50%,50%);
+    position: absolute;
+}
+
+.page-content {
+  padding-right: 15px;
+  padding-left: 150px;
+}
+
+.alert-success {
+
+}
+
+.alert-error {
+
+}
