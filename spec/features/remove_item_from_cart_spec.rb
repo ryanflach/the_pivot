@@ -1,16 +1,17 @@
 require 'rails_helper'
 
 RSpec.feature "Remove an item from the cart" do
-  xscenario "a visitor visits the cart path" do
+  scenario "a visitor visits the cart path" do
     # Background: My cart has an item in it
-    cart = Cart.new(nil)
     item = create(:item)
-    cart.add_item(item.id)
+   visit root_path
+   within ("#item-#{item.id}") do
+     click_on "Add to Cart"
+   end
 
     # As a visitor
     # When I visit "/cart"
     visit cart_index_path
-
     # And I click link "Remove"
     within("#item-#{item.id}") do
       click_on "Remove"
