@@ -6,17 +6,25 @@
         <th>Item</th>
         <th>Description</th>
         <th>Quantity</th>
-        <th>Price</th>
+        <th>Unit Price</th>
+        <th>Subtotal</th>
       </tr>
     </thead>
     <tbody>
       <% @cart.contents.each do |item_id, quantity| %>
         <% item = CartItem.new(item_id, quantity) %>
-        <tr>
+        <tr id="item-<%= item.id %>">
           <td><%= item.title %></td>
           <td><%= item.description %></td>
-          <td><%= item.quantity %></td>
+          <td>
+            <%= form_for(item, url: cart_item_path(item), class: 'text-center') do |f| %>
+              <%= f.label :quantity, "" %>
+              <%= f.select :quantity, quantities, value: item.quantity %>
+              <%= f.submit "Update Qty", class: 'btn btn-default btn-xs'%>
+            <% end %>
+          </td>
           <td><%= item.price %></td>
+          <td><%= item.sub_total %></td>
         </tr>
       <% end %>
       <tr>
