@@ -27,8 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'twitter-bootstrap-rails'
 gem 'faker'
-gem 'validates_email_format_of'
-
+gem 'email_validator', require: 'email_validator/strict'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

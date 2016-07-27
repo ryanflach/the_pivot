@@ -25,4 +25,10 @@ class Cart
       end
     end
   end
+
+  def all_items
+    contents.map do |item_id, quantity|
+      CartItem.new(item_id, quantity)
+    end
+  end
 end

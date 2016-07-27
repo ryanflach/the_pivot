@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature "Adjust the quantity of an item in the cart" do
-  scenario "visitor with item in cart visits the cart page" do
+RSpec.feature 'Adjust the quantity of an item in the cart' do
+  scenario 'visitor with item in cart visits the cart page' do
     # Background: My cart has an item in it
     item = create(:item)
     visit items_path
     within("#item-#{item.id}") do
-      click_on "Add to Cart"
+      click_on 'Add to Cart'
     end
     # As a visitor
     # When I visit "/cart"
