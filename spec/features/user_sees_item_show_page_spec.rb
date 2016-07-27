@@ -11,6 +11,6 @@ RSpec.feature "User sees item show page" do
     expect(page).to have_content(item.celebrity_name)
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.price)
-    expect(page).to have_link("Add to Cart")
+    expect(page).to have_button("Add to Cart")
   end
 end

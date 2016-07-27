@@ -9,6 +9,7 @@
         <th>Quantity</th>
         <th>Unit Price</th>
         <th>Subtotal</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +25,11 @@
           </td>
           <td><%= item.price %></td>
           <td><%= item.sub_total %></td>
+          <td><%= button_to "Remove", cart_item_path(item), method: :delete, class: 'btn btn-danger btn-sm' %></td>
         </tr>
       <% end %>
       <tr>
-        <td colspan="5" class="text-right">
+        <td colspan="6" class="text-right">
           <strong>Total: <%= @cart.total_cost %></strong>
         </td>
       </tr>
