@@ -47,4 +47,13 @@ RSpec.describe 'Cart', type: :model do
 
     expect(cart.total_items).to eq(0)
   end
+
+  it 'should return an array of CartItems for its contents' do
+    items = create_list(:item, 2)
+    cart = Cart.new(nil)
+    cart.add_item(items.first.id)
+    cart.add_item(items.last.id)
+
+    expect(cart.all_items.first.quantity).to eq(cart.contents["#{items.first.id}"])
+  end
 end
