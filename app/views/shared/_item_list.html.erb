@@ -1,4 +1,4 @@
-<div id="items_list" class="col-md-offset-1">
+<div id="items_list">
   <% @items.each do |item| %>
   <div class = "well col-md-3 text-center" id="item-<%= item.id %>">
     <p>
@@ -6,7 +6,7 @@
     </p>
     <p>
     <a id="popoverData" class="btn" href="#" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Backstory" data-trigger="hover">
-      <%= item.title %>
+      <%= link_to item.title, item_path(item) %>
     </a>
     <p>
       Celebrity: <%= item.celebrity_name %>
