@@ -22,7 +22,7 @@ RSpec.feature "User can see all items in a category" do
     expect(page).to have_content "Knife"
     expect(page).to have_content "Bowl"
 
-    visit category_path("outdoor supplies")
+    visit category_path("outdoor-supplies")
 
     expect(page).to have_content "Outdoor Supplies"
     expect(page).to have_content "Shovel"
