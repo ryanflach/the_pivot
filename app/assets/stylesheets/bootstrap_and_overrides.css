@@ -55,15 +55,15 @@
     position: absolute;
 }
 
+.item-content {
+  padding-left: 400px;
+}
+
+.item-show {
+  padding-left: 200px;
+  padding-top: 50px;
+}
 .page-content {
   padding-right: 15px;
   padding-left: 150px;
-}
-
-.alert-success {
-
-}
-
-.alert-error {
-
 }
