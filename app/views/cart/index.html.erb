@@ -11,14 +11,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @cart.contents.each do |item_id, quantity| %>
-        <% item = CartItem.new(item_id, quantity) %>
-        <tr>
-          <td><%= item.title %></td>
-          <td><%= item.description %></td>
-          <td><%= item.quantity %></td>
-          <td><%= item.price %></td>
-        </tr>
+      <% @items.each do |item| %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.description %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.price %></td>
+      </tr>
       <% end %>
       <tr>
         <td colspan="4" class="text-right">
