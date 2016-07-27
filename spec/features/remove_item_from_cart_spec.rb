@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Remove an item from the cart" do
-  scenario "a visitor visits the cart path" do
+  xscenario "a visitor visits the cart path" do
     # Background: My cart has an item in it
     cart = Cart.new(nil)
     item = create(:item)
