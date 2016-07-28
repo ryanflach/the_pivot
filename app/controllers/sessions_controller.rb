@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:danger] = "Login information incorrect."
+      flash.now[:danger] = "Login information incorrect."
+      render :new
     end
   end
 
