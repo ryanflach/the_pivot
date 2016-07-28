@@ -21,14 +21,14 @@ class Cart
       Item.find(contents.keys).pluck(:price).sum
     else
       contents.reduce(0) do |initial, (item_id, quantity)|
-        initial += Item.find(item_id).price * quantity
+        initial += CartItem.new(item_id, quantity).sub_total
       end
     end
   end
 
-  def items
+  def all_items
     contents.map do |item_id, quantity|
-      {Item.find(item_id.to_i) => quantity}
+      CartItem.new(item_id, quantity)
     end
   end
 end

@@ -26,3 +26,23 @@ end
     celebrity_id: Celebrity.all.sample.id
   )
 end
+
+Item.all.each do |item|
+  Order.create.items << item
+end
+
+orders = Order.all
+
+20.times do
+  User.create(
+    username: Faker::Internet.user_name,
+    email: Faker::Internet.safe_email,
+    password: 'password',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state_abbr,
+    zip_code: Faker::Address.zip_code,
+  ).orders << orders.shuffle.pop
+end

@@ -1,5 +1,4 @@
-<h1>Category: <%= @category.title %></h1>
-
-<% @category.items.each do |item| %>
-  <%= item.title %> <br>
-<% end %>
+<div class="page-content">
+  <h1>Category: <%= @category.title %></h1>
+  <%= render 'shared/item_list' %>
+</div>
