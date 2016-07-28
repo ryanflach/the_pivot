@@ -13,7 +13,7 @@ RSpec.feature "User can view past orders" do
       expect(page).to have_content(order.items.first.title)
       expect(page).to have_content(order.items.first.created_at.strftime("%m/%d/%Y"))
       expect(page).to have_content("2")
-      expect(page).to have_content(order.sub_tot(order.items.first))
+      expect(page).to have_content(order.sub_total(order.items.first))
     end
   end
 end

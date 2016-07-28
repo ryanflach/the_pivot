@@ -5,8 +5,8 @@
       <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail') %>
     </p>
     <p>
-    <a id="popoverData" class="btn" href="#" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Backstory" data-trigger="hover">
-      <%= link_to item.title, item_path(item) %>
+    <a id="popoverData" class="btn" href="<%= item_path(item) %>" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Backstory" data-trigger="hover">
+      <%= item.title %>
     </a>
     <p>
       Celebrity: <%= item.celebrity_name %>

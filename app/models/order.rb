@@ -11,11 +11,11 @@ class Order < ApplicationRecord
     items.where(id: item).count
   end
 
-  def sub_tot(item)
+  def sub_total(item)
     item_count(item) * item.price
   end
 
-  def tot
+  def total
     items.sum(:price)
   end
 
