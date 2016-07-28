@@ -16,7 +16,6 @@ class CartItemsController < ApplicationController
     item = Item.find(params[:id].to_i)
     @cart.contents.delete(params[:id])
     flash[:success] = "Successfully removed #{view_context.link_to(item.title, item_path(item))} from your cart."
-    # flash[:success] = %Q[Successfully removed #{item.title} from your cart. <a href="/cart_items/#{item.id}">Undo</a>.]
     redirect_to cart_index_path
   end
 end
