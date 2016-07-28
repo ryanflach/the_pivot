@@ -14,8 +14,8 @@
     <p>
       <%= number_to_currency(item.price) %>
     </p>
-    <%= content_tag :div, class: 'text-center' do %>
-      <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'btn btn-default' %>
+    <%= content_tag :div do %>
+      <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'center_button btn btn-default' %>
     <% end %>
   </div>
   <% end %>

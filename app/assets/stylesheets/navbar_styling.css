@@ -22,6 +22,7 @@
 
 .navbar-default {
   min-height:80px;
+  max-height: 80px;
 }
 
 .navbar-default > ul {
@@ -29,9 +30,9 @@
 }
 
 .user-info {
-  vertical-align: top;
-  text-align: right;
-  color: #555;
+  float: none;
+  position: fixed;
+  padding-left: 90%;
 }
 
 .navbar-fixed-left .navbar-nav > li {
