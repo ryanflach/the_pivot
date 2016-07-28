@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :cart, only: [:index]
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :show]
+  resources :orders, only: [:index]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
