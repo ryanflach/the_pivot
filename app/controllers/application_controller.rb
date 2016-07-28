@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_admin?
+    current_user && current_user.admin?
+  end
+  
   def categories
     @categories = Category.all
   end

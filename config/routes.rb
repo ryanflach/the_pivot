@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
   root to: 'home#index'
   resources :cart_items, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
