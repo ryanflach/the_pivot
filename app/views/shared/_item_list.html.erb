@@ -12,7 +12,7 @@
       Celebrity: <%= item.celebrity_name %>
     </p>
     <p>
-      $ <%= item.price %>
+      <%= number_to_currency(item.price) %>
     </p>
     <%= content_tag :div, class: 'text-center' do %>
       <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'btn btn-default' %>

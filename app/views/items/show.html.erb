@@ -5,7 +5,7 @@
     <div class="item-content">
       <h2><p>Celebrity: <%= @item.celebrity_name %></h2></p>
       <p><%= @item.description %></p>
-      <p>$<%= @item.price %><p>
+      <p><%= number_to_currency(@item.price) %><p>
       <p><%= button_to 'Add to Cart', cart_items_path(item_id: @item.id.to_i), class: 'btn btn-default' %></p>
     </div>
   </div>
