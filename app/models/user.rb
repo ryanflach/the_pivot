@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :email, email: { strict_mode: true }
   validates :state, length: { is: 2 }
   validates :zip_code, length: { is: 5 }
+
+  enum role: %w(default admin)
 end
