@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
-  # before_action :check_regular_user
   def index
-    #change to current_user.orders
-    @orders = User.first.orders
+    if current_user
+      @orders = current_user.orders
+    else
+      flash[:danger] = "Please login to view your orders"
+      redirect_to login_path
+    end
   end
 end

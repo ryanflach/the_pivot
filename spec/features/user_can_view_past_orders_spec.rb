@@ -6,7 +6,7 @@ RSpec.feature "User can view past orders" do
     item = Item.first
     user = User.first
     user.orders.first.items << item
-
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit orders_path
 
     within("#order-#{order.id}") do
