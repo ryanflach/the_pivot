@@ -28,6 +28,11 @@
  margin: 30px 0 0;
 }
 
+.user-info {
+  vertical-align: top;
+  text-align: right;
+  color: #555;
+}
 
 .navbar-fixed-left .navbar-nav > li {
   float: none;
