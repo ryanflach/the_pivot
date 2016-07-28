@@ -22,13 +22,13 @@
               <td><%= item.title %></td>
               <td><%= item.description %></td>
               <td><%= order.item_count(item) %></td>
-              <td><%= item.price %></td>
-              <td><%= order.sub_tot(item) %></td>
+              <td><%= number_to_currency(item.price) %></td>
+              <td><%= number_to_currency(order.sub_tot(item)) %></td>
             </tr>
           <% end %>
         <tr>
           <td colspan="5" class="text-right">
-            <strong>Total: $<%= order.tot %></strong>
+            <strong>Total: <%= number_to_currency(order.tot) %></strong>
           </td>
         <tr>
       </tbody>
