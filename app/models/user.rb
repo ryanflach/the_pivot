@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :zip_code, length: { is: 5 }
 
   enum role: %w(default admin)
+  
+  def date_registered
+    created_at.strftime("%m/%d/%Y")
+  end
 end
