@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor sees appropriate information" do
-  xscenario "views their cart" do
+  scenario "views their cart" do
     item = create(:item)
 
     visit items_path
@@ -13,9 +13,10 @@ RSpec.feature "Visitor sees appropriate information" do
     visit cart_index_path
 
     expect(page).not_to have_button("Checkout")
-    expect(page).to have_button("Login or Create Account to Checkout")
+    expect(page).to have_link("Login or Create Account to Checkout")
 
     click_on "Login or Create Account to Checkout"
+    click_on "Create an account."
 
     fill_in "Username", with: 'Ryan'
     fill_in "Email", with: 'ryan@example.com'
