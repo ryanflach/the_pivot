@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def verify_logged_in
     unless current_user
-      flash[:danger] = "Please login to view your dashboard"
+      flash[:danger] = "Please login to view this page"
       redirect_to login_path
     end
   end

@@ -19,4 +19,8 @@ class Order < ApplicationRecord
     items.sum(:price)
   end
 
+  def unique_items
+    self.items.uniq
+  end
+
 end
