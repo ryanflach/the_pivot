@@ -17,14 +17,13 @@
     float: right;
   }
 
-  .login {
+  .center_button {
     float: none;
   }
 
   .entry {
     width: 220px;
   }
-
 
 .center {
     right:46%;
