@@ -1,0 +1,20 @@
+<%= form_for(target, url: path) do |f|  %>
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username, class: 'entry' %>
+  </p>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'entry' %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'entry' %>
+  </p>
+
+  <center>
+    <%= f.submit button, class: "center_button btn btn-#{btn_class}"%>
+  </center>
+<% end %>

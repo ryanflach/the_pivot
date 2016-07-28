@@ -12,7 +12,7 @@ RSpec.feature "User can login" do
     click_button "Login"
 
     expect(page).to have_content "Logged in as lane"
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_link "Logout"
     expect(page).to have_link "Cart"
 

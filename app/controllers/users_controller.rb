@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :verify_logged_in, only: [:show]
 
   def new
     @user = User.new
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       flash.now[:danger] = @user.errors.full_messages.join(", ")
       render :new

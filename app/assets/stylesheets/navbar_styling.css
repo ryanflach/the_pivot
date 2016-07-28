@@ -33,6 +33,7 @@
   float: none;
   position: fixed;
   padding-left: 90%;
+  padding-top: 10px;
 }
 
 .navbar-fixed-left .navbar-nav > li {
