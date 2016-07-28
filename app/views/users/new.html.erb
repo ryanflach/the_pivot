@@ -1,25 +1,6 @@
 <div class='page-content'>
   <h1>Create New Account</h1>
   <div class="well col-md-4 col-md-offset-4">
-    <%= form_for(@user) do |f|  %>
-    <p>
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'entry' %>
-    </p>
-
-    <p>
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'entry' %>
-    </p>
-
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'entry' %>
-    </p>
-
-    <center>
-      <%= f.submit "Create Account", class: 'login btn btn-success'%>
-    </center>
-    <% end %>
+    <%= render partial: 'shared/login_form', locals: {target: @user, path: users_path, button: "Create Account"} %>
   </div>
 </div>

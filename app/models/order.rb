@@ -12,11 +12,11 @@ class Order < ApplicationRecord
   end
 
   def sub_tot(item)
-    item_count(item).to_f * item.price.to_f
+    item_count(item) * item.price
   end
 
   def tot
-    items.sum(:price).to_f
+    items.sum(:price)
   end
 
 end

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user
+  helper_method :current_user, :verify_logged_in
 
   before_action :set_cart
 
@@ -11,5 +11,12 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def verify_logged_in
+    unless current_user
+      flash[:danger] = "Please login to view your dashboard"
+      redirect_to login_path
+    end
   end
 end
