@@ -13,10 +13,14 @@
     </li>
     <li>
       <a class="" href="#" data-toggle="collapse" data-target="#categories">
-        <i class="fa fa-toggle-down"></i> Categories</a>
+      <i class="fa fa-toggle-down"></i> Categories</a>
       <div id="categories" class="collapse">
         <% categories.each do |category| %>
-        <p><%= link_to category.title, category_path(category) %></p>
+        <div class="category">
+          <p>
+            <%= link_to category.title, category_path(category), class:"category" %>
+          </p>
+        </div>
         <% end %>
       </div>
     </li>
