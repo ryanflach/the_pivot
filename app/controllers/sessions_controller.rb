@@ -29,6 +29,8 @@ class SessionsController < ApplicationController
   def redirect_based_on_referrer
     if login_referrer == 'cart'
       redirect_to cart_index_path
+    elsif current_admin?
+      redirect_to admin_dashboard_index_path
     else
       redirect_to dashboard_path
     end
