@@ -21,7 +21,9 @@ class OrdersController < ApplicationController
   def save_order
     order = Order.create(user: current_user)
     @cart.all_items.each do |item|
-      order.items << Item.find(item.id)
+      order_item = Item.find(item.id)
+      order.items << order_item
+      OrderItem.find_by(order: order, item: order_item).update(quantity: item.quantity)
     end
   end
 

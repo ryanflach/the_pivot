@@ -18,8 +18,8 @@
         <tbody>
             <tr>
               <td><%= order.date %></td>
-              <td><%= order.items.count %></td>
-              <td>$<%= order.total %></td>
+              <td><%= order.total_items %></td>
+              <td><%= number_to_currency(order.total) %></td>
               <td><%= order.status %></td>
             </tr>
         <tr>

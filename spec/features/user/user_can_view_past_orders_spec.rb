@@ -2,16 +2,21 @@ require 'rails_helper'
 
 RSpec.feature "User can view past orders" do
   scenario "when they go to their Order History page" do
-    order = create(:order)
-    item = Item.first
-    user = User.first
-    user.orders.first.items << item
+    user = create(:user)
+    item = create(:item)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit orders_path
+
+    visit items_path
+    click_on "Add to Cart"
+    visit items_path
+    click_on "Add to Cart"
+    click_on "Checkout"
+
+    order = Order.first
 
     within("#order-#{order.id}") do
       expect(page).to have_content(order.date)
-      expect(page).to have_content(order.items.count)
+      expect(page).to have_content(order.total_items)
       expect(page).to have_content(order.total)
     end
   end
