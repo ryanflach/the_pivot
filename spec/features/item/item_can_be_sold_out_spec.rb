@@ -2,15 +2,13 @@ require 'rails_helper'
 
 RSpec.feature "Item can be sold out" do
   scenario "logged-in user visits the show page of a sold-out item" do
-    # As a user if I visit an item page and that item has been sold-out
     user = create(:user)
     item = create(:sold_out_item)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    # Then I should still be able to access the item page
+
     visit item_path(item)
-    # And I should not be able to add the item to their cart
+
     expect(page).not_to have_button("Add to Cart")
-    # And I should see in place of the "Add to Cart" button or link - "Item SOLD"
     expect(page).to have_content("SOLD OUT")
   end
 

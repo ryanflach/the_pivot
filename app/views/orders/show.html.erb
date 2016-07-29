@@ -20,11 +20,11 @@
           </tr>
         </thead>
         <tbody>
-          <% @order.unique_items.each do |item| %>
-            <tr>
+          <% @order.items.each do |item| %>
+            <tr id="item-<%= item.id %>">
               <td><%= item.title %></td>
               <td><%= item.description %></td>
-              <td><%= @order.item_count(item) %></td>
+              <td><%= @order.item_quantity(item) %></td>
               <td><%= number_to_currency(item.price) %></td>
               <td><%= number_to_currency(@order.sub_total(item)) %></td>
               <td><%= @order.status %></td>

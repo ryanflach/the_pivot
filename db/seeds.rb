@@ -28,7 +28,8 @@ end
 end
 
 Item.all.each do |item|
-  Order.create.items << item
+  order = Order.create.items << item
+  OrderItem.find_by(order: order, item: item).update(quantity: 1)
 end
 
 orders = Order.all
