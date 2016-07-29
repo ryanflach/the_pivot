@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :cart_items, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
+  resources :items do
+    get 'unavailable', on: :collection
+  end
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :orders, only: [:index, :create, :show]
