@@ -10,10 +10,9 @@ RSpec.feature "User can view past orders" do
     visit orders_path
 
     within("#order-#{order.id}") do
-      expect(page).to have_content(order.items.first.title)
-      expect(page).to have_content(order.items.first.created_at.strftime("%m/%d/%Y"))
-      expect(page).to have_content("2")
-      expect(page).to have_content(order.sub_total(order.items.first))
+      expect(page).to have_content(order.date)
+      expect(page).to have_content(order.items.count)
+      expect(page).to have_content(order.total)
     end
   end
 end

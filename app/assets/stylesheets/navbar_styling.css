@@ -39,9 +39,19 @@
 
 .navbar-fixed-left .navbar-nav > li {
   float: none;
-  width: 139px;
+  width: 130px;
 }
 
 .logo {
   width: 30%;
+}
+
+#categories {
+  padding-left: 5%;
+}
+
+.category:hover {
+  width: 100%;
+  background: #eeeeee;
+  text-decoration: none;
 }
