@@ -1,18 +1,18 @@
 <div class="page-content">
-  <h1>Profile for <%= @user.username %></h1>
+  <h1>Profile for <%= current_user.username %></h1>
   <div class="well table-responsive col-md-6">
     <table class="table">
       <tr>
         <th>E-mail</th>
-        <td><%= @user.email %></td>
+        <td><%= current_user.email %></td>
       </tr>
       <tr>
         <th>Date Registered</th>
-        <td><%= @user.date_registered %></td>
+        <td><%= current_user.date_registered %></td>
       </tr>
       <tr>
         <th>Orders Placed</th>
-        <td><%= @user.orders.count %></td>
+        <td><%= current_user.orders.count %></td>
       </tr>
     </table>
   </div>
