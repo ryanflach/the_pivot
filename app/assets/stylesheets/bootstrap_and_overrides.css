@@ -5,11 +5,24 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+  .item-content {
+    padding-left: 400px;
+  }
+
+  .item-show {
+    padding-left: 200px;padding-top: 50px;
+  }
+
   body
   {
     font-family: 'Droid Sans', sans-serif;
     padding-top: 80px;
     color: #555;
+    background-image: url('elvis.png');
+     background-attachment: fixed;
+     background-repeat: no-repeat;
+     background-size: cover;
   }
 
   input
@@ -25,22 +38,19 @@
     width: 220px;
   }
 
-.center {
-    right:46%;
-    bottom: 50%;
-    transform: translate(50%,50%);
-    position: absolute;
-}
+  .home {
+    padding-bottom: 50%;
+  }
 
-.item-content {
-  padding-left: 400px;
-}
+  .center {
+      right:46%;
+      bottom: 35%;
+      transform: translate(50%,50%);
+      position: absolute;
+  }
 
-.item-show {
-  padding-left: 200px;
-  padding-top: 50px;
-}
-.page-content {
-  padding-right: 15px;
-  padding-left: 150px;
-}
+
+  .page-content {
+    padding-right: 15px;
+    padding-left: 150px;
+  }

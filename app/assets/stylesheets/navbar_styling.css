@@ -5,8 +5,12 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+.well {
+  background-color: rgba(255, 255, 255, 0.60);
+  border-color: #cac9cb;
+}
 .navbar {
-    background-color: #F8F8F8;
+    background-color: rgba(255, 255, 255, 0.77);
     border: none;
     position: fixed;
     width: 100%;
@@ -38,9 +42,19 @@
 
 .navbar-fixed-left .navbar-nav > li {
   float: none;
-  width: 139px;
+  width: 130px;
 }
 
 .logo {
   width: 30%;
+}
+
+#categories {
+  padding-left: 5%;
+}
+
+.category:hover {
+  width: 100%;
+  background: #eeeeee;
+  text-decoration: none;
 }
