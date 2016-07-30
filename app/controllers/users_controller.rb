@@ -40,9 +40,14 @@ class UsersController < ApplicationController
   end
 
   def verify_admin
-    unless current_admin?
-      flash[:danger] = "You cannot access admin content!"
-      redirect_to login_path
+    unless current_admin? && current_user.id == params[:id].to_i
+      if current_admin?
+        flash[:danger] = "Admins can only modify their own accounts"
+        redirect_to dashboard_path
+      else
+        flash[:danger] = "You cannot access admin content!"
+        redirect_to login_path
+      end
     end
   end
 end
