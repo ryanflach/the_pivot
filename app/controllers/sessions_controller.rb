@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to dashboard_path if current_user
     session[:previous_url] = request.referrer
   end
 
