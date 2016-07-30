@@ -24,4 +24,15 @@ RSpec.feature "Logged in admin can alter admin account" do
     expect(page).to have_content "Logged in as ADMIN"
     expect(current_path).to eq(admin_dashboard_index_path)
   end
+
+  scenario "admin cannot change another user's account" do
+    admin = create(:admin)
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit edit_user_path(user)
+
+    expect(page).to have_content("Admins can only modify their own accounts")
+    expect(current_path).to eq(admin_dashboard_index_path)
+  end
 end
