@@ -48,7 +48,8 @@ orders = Order.all
   ).orders << orders.shuffle.pop
 end
 
-sold_out_item = Item.create(
+# Create sold-out item
+Item.create(
   title: Faker::Commerce.product_name,
   description: Faker::Hipster.paragraph,
   price: Faker::Commerce.price.to_f,
