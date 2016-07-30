@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.feature "Logged in admin can alter admin account" do
   scenario "admin can change their account" do
-    admin = User.create(username: 'admin', email: 'admin@example.com', password: 'admin', role: 1)
+    admin = create(:admin)
 
     visit login_path
 
-    fill_in "Username", with: "admin"
-    fill_in "Email", with: "admin@example.com"
-    fill_in "Password", with: "admin"
+    fill_in "Username", with: admin.username
+    fill_in "Email", with: admin.email
+    fill_in "Password", with: 'password'
     click_button "Login"
 
     expect(current_path).to eq(admin_dashboard_index_path)
@@ -17,8 +17,8 @@ RSpec.feature "Logged in admin can alter admin account" do
     expect(current_path).to eq(edit_user_path(admin))
 
     fill_in "Username", with: "ADMIN"
-    fill_in "Email", with: "admin@example.com"
-    fill_in "Password", with: "admin"
+    fill_in "Email", with: admin.email
+    fill_in "Password", with: 'password'
     click_button "Update Profile"
 
     expect(page).to have_content "Logged in as ADMIN"
