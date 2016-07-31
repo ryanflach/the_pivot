@@ -4,7 +4,7 @@
     <%= f.text_field :username, class: 'entry' %>
   </p>
   <%  %>
-  <% if on_new_user_path? %>
+  <% if new_user_path? || admin_edit? %>
     <p>
       <%= f.label :email %>
       <%= f.text_field :email, class: 'entry' %>
