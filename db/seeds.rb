@@ -8,7 +8,7 @@ jt = Celebrity.create(name: 'Justin Timberlake')
 jtt = Celebrity.create(name: 'Jonathan Taylor Thomas')
 attenborough = Celebrity.create(name: 'Sir David Attenborough')
 hulk = Celebrity.create(name: "Hulk Hogan")
-christopher = Celebrity.crate(name: "Christopher Walken")
+christopher = Celebrity.create(name: "Christopher Walken")
 gary = Celebrity.create(name: "Gary Busey")
 cyndi = Celebrity.create(name: "Cyndi Lauper")
 chris = Celebrity.create(name: "Chris Farley")
@@ -117,7 +117,7 @@ Item.create(
   Flavor Flave realized his assistant forgot to pack his custom microfiber-coated boar bristle grill polishing
   toothbrush. One of our associates was on staff at the Riviera at the time and provided this very toothbrush
   to Flave, who used it for one day until his custom toothbrush could be overnighted to him. Flavor Flave left this
-  beauty on his bathroom counter, and now it can grace yours!'
+  beauty on his bathroom counter, and now it can grace yours!',
   price: 299.99,
   category: health,
   celebrity: flavor,
