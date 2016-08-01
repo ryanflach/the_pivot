@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
   validates :title, presence: true, uniqueness: { scope: :celebrity_id }
   validates :price, presence: true
+  validates :category, presence: true
+  validates :celebrity, presence: true
 
   enum status: %w(available unavailable)
 
