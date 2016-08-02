@@ -30,7 +30,7 @@ RSpec.feature 'Admin creates an item' do
   end
 
   context 'with valid information and photo' do
-    xscenario 'logged-in admin visits the items path' do
+    scenario 'logged-in admin visits the items path' do
       admin = create(:admin)
       categories = create_list(:category, 3)
       celebrity = create(:celebrity)
@@ -38,13 +38,14 @@ RSpec.feature 'Admin creates an item' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit items_path
+      click_on 'Add New Treasure'
 
       fill_in 'Title', with: 'Creamy Ranch Dressing'
       fill_in 'Description', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
       fill_in 'Price', with: 29.99
       select "#{categories.first.title}", from: 'Category'
       select "#{celebrity.name}", from: 'Celebrity'
-      attach_file('Image', '/Desktop/No_available_image.gif')
+      attach_file('Image', '/Users/Ryan/Desktop/No_available_image.gif')
       click_on 'Add Treasure'
 
       expect(current_path).to eq(item_path(Item.first))
