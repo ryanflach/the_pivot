@@ -25,4 +25,8 @@ class Item < ApplicationRecord
   def set_image_path
     self.image_path = self.upload_image.url unless self.image_path
   end
+
+  def update_image_path
+    update(image_path: upload_image.url)
+  end
 end
