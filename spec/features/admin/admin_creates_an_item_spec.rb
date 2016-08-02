@@ -58,13 +58,18 @@ RSpec.feature 'Admin creates an item' do
   context 'with invalid item information' do
     scenario 'logged-in admin visits the items path' do
       admin = create(:admin)
-      categories = create_list(:category, 3)
-      celebrity = create(:celebrity)
+      item = create(:item)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit items_path
       click_on 'Add New Treasure'
+      fill_in 'Title', with: item.title
+      fill_in 'Description', with: item.description
+      click_on 'Add Treasure'
+
+      expect(page).to have_content("Title has already been taken, Price can't be blank")
+      expect(Item.count).to eq(1)
     end
   end
 
