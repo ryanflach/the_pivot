@@ -20,7 +20,7 @@ RSpec.feature 'Admin creates an item' do
       select "#{categories.first.title}", from: 'Category'
       select "#{celebrity.name}", from: 'Celebrity'
       click_on 'Add Treasure'
-
+      
       expect(current_path).to eq(item_path(Item.first))
       expect(page).to have_content(Item.first.title)
       expect(page).to have_content(Item.first.description)
@@ -90,8 +90,8 @@ RSpec.feature 'Admin creates an item' do
 
       visit new_admin_item_path
 
-      expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content('You cannot access admin content!')
+      expect(current_path).to eq(new_admin_item_path)
+      expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
     end
 
     scenario 'visitor visits the items path' do
@@ -103,8 +103,8 @@ RSpec.feature 'Admin creates an item' do
     scenario 'visitor attempts to visit new item path' do
       visit new_admin_item_path
 
-      expect(current_path).to eq(login_path)
-      expect(page).to have_content('You cannot access admin content!')
+      expect(current_path).to eq(new_admin_item_path)
+      expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
     end
   end
 end

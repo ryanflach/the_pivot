@@ -57,3 +57,4 @@ gem 'figaro'
 gem 'stripe'
 gem 'paperclip'
 gem 'aws-sdk'
+gem "omniauth-twitter"
