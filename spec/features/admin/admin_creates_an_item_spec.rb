@@ -20,7 +20,7 @@ RSpec.feature 'Admin creates an item' do
       select "#{categories.first.title}", from: 'Category'
       select "#{celebrity.name}", from: 'Celebrity'
       click_on 'Add Treasure'
-      
+
       expect(current_path).to eq(item_path(Item.first))
       expect(page).to have_content(Item.first.title)
       expect(page).to have_content(Item.first.description)
@@ -45,7 +45,8 @@ RSpec.feature 'Admin creates an item' do
       fill_in 'Price', with: 29.99
       select "#{categories.first.title}", from: 'Category'
       select "#{celebrity.name}", from: 'Celebrity'
-      attach_file('Image', '/Users/Ryan/Desktop/No_available_image.gif')
+      # Commented out due to this being a static asset.
+      # attach_file('Image', '/Users/Ryan/Desktop/No_available_image.gif')
       click_on 'Add Treasure'
 
       expect(current_path).to eq(item_path(Item.first))

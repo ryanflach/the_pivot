@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   validates :celebrity, presence: true
   validates_attachment_content_type :upload_image, :content_type => /\Aimage\/.*\Z/
 
-  before_create :set_image_path
+  after_create :update_image_path
 
   enum status: %w(available unavailable)
 
@@ -20,10 +20,6 @@ class Item < ApplicationRecord
 
   def sold_out?
     status == 'unavailable'
-  end
-
-  def set_image_path
-    self.image_path = self.upload_image.url unless self.image_path
   end
 
   def update_image_path
