@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "Account created successfully!"
       redirect_to dashboard_path
     else
       flash.now[:danger] = @user.errors.full_messages.join(", ")
