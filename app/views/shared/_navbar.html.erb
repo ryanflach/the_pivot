@@ -7,8 +7,8 @@
       <% end %>
     </li>
     <li>
-      <%= link_to items_path do %>
-        <i class="fa fa-align-justify"></i> All Items
+      <%= link_to events_path do %>
+        <i class="fa fa-align-justify"></i> All Events
       <% end %>
     </li>
     <li>
@@ -25,7 +25,7 @@
       </div>
     </li>
     <li>
-      <%= link_to unavailable_items_path do %>
+      <%= link_to unavailable_events_path do %>
         <i class="fa fa-trophy"></i> Best Of
       <% end %>
     </li>
@@ -48,7 +48,7 @@
   <ul class="nav navbar-nav navbar-right">
     <li>
       <%= link_to cart_index_path do %>
-      <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_items %>
+      <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_events %>
       <% end %>
     </li>
     <% if current_user %>

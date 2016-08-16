@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user && current_user.admin?
+    current_user && !current_user.customer? 
   end
 
   def categories

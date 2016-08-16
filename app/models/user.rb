@@ -2,12 +2,10 @@ class User < ApplicationRecord
   has_secure_password
   has_many :orders
   validates :username, presence: true, uniqueness: true, if: "uid.nil?", on: :create
-  validates :email, presence: true, uniqueness: true, if: "uid.nil?", on: :create
+  validates :email, presence: true, if: "uid.nil?", on: :create
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
-  validates :state, length: { is: 2 }
-  validates :zip_code, length: { is: 5 }
 
-  enum role: %w(default admin)
+  enum role: %w(customer venue_admin platform_admin)
 
   after_create :send_welcome_email
 

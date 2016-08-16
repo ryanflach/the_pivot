@@ -5,23 +5,23 @@ bathroom = Category.create(title: 'Bathroom')
 entertainment = Category.create(title: 'Entertainment')
 outdoors = Category.create(title: 'Outdoors')
 
-jt = Celebrity.create(name: 'Justin Timberlake')
-jtt = Celebrity.create(name: 'Jonathan Taylor Thomas')
-attenborough = Celebrity.create(name: 'Sir David Attenborough')
-hulk = Celebrity.create(name: "Hulk Hogan")
-christopher = Celebrity.create(name: "Christopher Walken")
-gary = Celebrity.create(name: "Gary Busey")
-cyndi = Celebrity.create(name: "Cyndi Lauper")
-chris = Celebrity.create(name: "Chris Farley")
-flavor = Celebrity.create(name: "Flavor Flave")
-vin = Celebrity.create(name: "Vin Diesel")
-tom = Celebrity.create(name: "Tom Hanks")
-leo = Celebrity.create(name: "Leonardo Dicaprio")
-arnold = Celebrity.create(name: "Arnold Schwarzenegger")
-charlie = Celebrity.create(name: "Charlie Sheen")
-britney = Celebrity.create(name: "Britney Spears")
+jt = Venue.create(name: 'Justin Timberlake')
+jtt = Venue.create(name: 'Jonathan Taylor Thomas')
+attenborough = Venue.create(name: 'Sir David Attenborough')
+hulk = Venue.create(name: "Hulk Hogan")
+christopher = Venue.create(name: "Christopher Walken")
+gary = Venue.create(name: "Gary Busey")
+cyndi = Venue.create(name: "Cyndi Lauper")
+chris = Venue.create(name: "Chris Farley")
+flavor = Venue.create(name: "Flavor Flave")
+vin = Venue.create(name: "Vin Diesel")
+tom = Venue.create(name: "Tom Hanks")
+leo = Venue.create(name: "Leonardo Dicaprio")
+arnold = Venue.create(name: "Arnold Schwarzenegger")
+charlie = Venue.create(name: "Charlie Sheen")
+britney = Venue.create(name: "Britney Spears")
 
-Item.create(
+Event.create(
   title: 'Broken Swiffer',
   description: "When times are tough and you're cleaning your own home,\
   it's easy to imagine the frustration that arises when your trusty \
@@ -31,10 +31,10 @@ Item.create(
   price: 44.99,
   image_path: 'http://i.imgur.com/ymvr4Qd.jpg',
   category: cleaning,
-  celebrity: jtt
+  venue: jtt
 )
 
-Item.create(
+Event.create(
   title: 'Half-full Throat Spray',
   description: "You know him from every nature documentary ever \
   produced, and now you can unlock the secret behind his buttery, \
@@ -45,10 +45,10 @@ Item.create(
   price: 109.99,
   image_path: 'http://i.imgur.com/69bNRtH.jpg',
   category: health,
-  celebrity: attenborough
+  venue: attenborough
 )
 
-Item.create(
+Event.create(
   title: 'Malfunctioning Bidet',
   description: "Perhaps one of our greatest treasures: hit-maker, \
   actor, and all-around world superstar Justin Timberlake's personal \
@@ -58,11 +58,11 @@ Item.create(
   price: 1099.99,
   image_path: 'http://i.imgur.com/LeTdTmw.jpg',
   category: bathroom,
-  celebrity: jt,
+  venue: jt,
   status: 1
 )
 
-Item.create(
+Event.create(
   title: 'Justin Timberlake N*Sync Doll',
   description: "Worlds have collided with this unique item. Owned by \
   Sir David Attenborough, revealing both his good taste and a rare \
@@ -73,10 +73,10 @@ Item.create(
   price: 249.99,
   image_path: 'http://i.imgur.com/bOZoSV8.jpg',
   category: entertainment,
-  celebrity: attenborough
+  venue: attenborough
 )
 
-Item.create(
+Event.create(
   title: 'Glee Season 2 Soundtrack (CD)',
   description: "Priced at a very special fifty-TWO dollars, this CD \
   shows plenty of scratches from apparent regular use by superstar \
@@ -86,10 +86,10 @@ Item.create(
   price: 52.00,
   image_path: 'http://i.imgur.com/cLgVDRa.png',
   category: entertainment,
-  celebrity: jt
+  venue: jt
 )
 
-Item.create(
+Event.create(
   title: "Quarter Full Bottle of Visine",
   description: 'It’s no secret in Christopher Walken’s circle of friends that
   he suffers from chronically dry eyes. He maintains a regular optical
@@ -102,22 +102,22 @@ Item.create(
   eyeballs. Wow.”',
   price: 3499.99,
   category: health,
-  celebrity: christopher,
+  venue: christopher,
   image_path: "http://i.imgur.com/be4TQVU.jpg",
   status: 1
 )
 
-Item.create(
+Event.create(
   title: "Toothbrush",
   description: 'Barely used! This was acquired from Gary’s housecleaner who said,
    “Mr. Busey likes soft bristle only. This is a medium to hard bristle toothbrush!”',
   price: 200.01,
   category: health,
-  celebrity: gary,
+  venue: gary,
   image_path: "http://i.imgur.com/s4Z1p1G.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Bedazzled Toothbrush",
   description: 'Upon arrival at the Riviera Hotel & Casino in Las Vegas where Flavor Flave
   was negotiation another location for his House of Flavor restaurant specializing in fried chicken,
@@ -127,21 +127,21 @@ Item.create(
   beauty on his bathroom counter, and now it can grace yours!',
   price: 299.99,
   category: health,
-  celebrity: flavor,
+  venue: flavor,
   image_path: "http://i.imgur.com/zVIJ8wJ.png"
 )
 
-Item.create(
+Event.create(
   title: "Nearly Panned Blue Eyeshadow",
   description: 'Straight from the set of the 1983 hit music video Girls Wanna
   Have Fun, this eyeshadow graced the lids of this 80’s pop legend time after time.',
   price: 80.05,
   category: health,
-  celebrity: cyndi,
+  venue: cyndi,
   image_path: "http://i.imgur.com/LGbPdhk.jpg"
 )
 
-Item.create(
+Event.create(
   title: "1800w Microwave",
   description: 'Acquired through an estate sale after his passing, this
   microwave was used by Chris to heat up many of the snacks that fueled his
@@ -149,11 +149,11 @@ Item.create(
   ensuring that you’ll never over-microwave your hot pockets.',
   price: 199.99,
   category: kitchen,
-  celebrity: chris,
+  venue: chris,
   image_path: "http://i.imgur.com/Ea13XQf.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Almost New Bottle of Baby Oil",
   description: "Only enough of the oil was used to grease up the Hulkster
   right before he entered the arena for WrestleMania 20. Once slathered, the
@@ -161,34 +161,34 @@ Item.create(
   scooped up by a security guard who made sure it found its way to One Fan's Treasure!",
   price: 350.21,
   category: health,
-  celebrity: hulk,
+  venue: hulk,
   image_path: "http://i.imgur.com/7Muqvq2.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Willson (volleyball)",
   description: "This is the companion that we all watched and wanted during
   the emotional tale portrayed in Cast Away. The opportunity to gain a friend
   and piece of history is now!",
   price: 760.09,
   category: entertainment,
-  celebrity: tom,
+  venue: tom,
   image_path: "http://i.imgur.com/XDSCwr4.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Dull Straight Razor",
   description: "You may have thought it was all natural, but Vin was maintaining
   his unique look with this timeless tool for years! He has upgraded to an ever-sharp
-  platinum coated razor, but now you can upgrade your collection of celebrity treasures
+  platinum coated razor, but now you can upgrade your collection of venue treasures
   at a bargain price!",
   price: 35.75,
   category: bathroom,
-  celebrity: vin,
+  venue: vin,
   image_path: "http://i.imgur.com/LT9Jeka.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Oscar Award",
   description: 'One would have to wonder how long Leo has been wanting an Oscar
   of his own. In 2016, his goal was achieved, and he immediately donated his Oscar
@@ -197,22 +197,22 @@ Item.create(
   know?" We sure do!',
   price: 15259.99,
   category: entertainment,
-  celebrity: leo,
+  venue: leo,
   image_path: "http://i.imgur.com/ET3lR7u.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Blender",
   description: "This slightly used blender was used by none other than Arnold
   Schwarzenegger on his redemption tour in the realm of bodybuilding. You can
   also gain and win with this product.",
   price: 250.01,
   category: kitchen,
-  celebrity: arnold,
+  venue: arnold,
   image_path: "http://i.imgur.com/r8TlVsW.jpg"
 )
 
-Item.create(
+Event.create(
   title: "Flask Containing Mystery Liquor",
   description: 'This was a secretly prized possesion of Charlie Sheen until the
   night he accidentally left it in the cab of a taxi in Slicklizzard, Alabama.
@@ -224,12 +224,12 @@ Item.create(
   this flask. Now the mystery can be yours!',
   price: 365.05,
   category: entertainment,
-  celebrity: charlie,
+  venue: charlie,
   image_path: "http://i.imgur.com/RIwQsL4.jpg",
   status: 1
 )
 
-Item.create(
+Event.create(
   title: "Broken Green Umbrella",
   description: "You may immediately recognize this iconic umbrella used by
   Britney in 2007 to defend herself against a vicious paparrazi attack. In the
@@ -240,6 +240,6 @@ Item.create(
   Wield with responsibility.",
   price: 313.13,
   category: outdoors,
-  celebrity: britney,
+  venue: britney,
   image_path: "http://i.imgur.com/XOKy4oy.jpg"
 )
