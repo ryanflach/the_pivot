@@ -22,7 +22,7 @@ RSpec.feature "User information is secure from others" do
     visit admin_dashboard_index_path
     expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
 
-    visit items_path
+    visit events_path
     click_on "Add to Cart"
 
     visit cart_index_path
@@ -55,7 +55,7 @@ private
 
 def place_order
   user = create(:user)
-  create(:item)
+  create(:event)
 
   visit login_path
   within('form') do
@@ -64,7 +64,7 @@ def place_order
     click_on 'Login'
   end
 
-  visit items_path
+  visit events_path
   click_on "Add to Cart"
   click_on "Add to Cart"
 

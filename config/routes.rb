@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :items, only: [:new, :create, :edit, :update]
+    resources :events, only: [:new, :create, :edit, :update]
   end
-  resources :cart_items, only: [:create, :update, :destroy]
+  resources :cart_events, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
-  resources :items, only: [:index, :show] do
+  resources :events, only: [:index, :show] do
     get 'unavailable', on: :collection
   end
   resources :users, only: [:new, :create, :edit, :update]

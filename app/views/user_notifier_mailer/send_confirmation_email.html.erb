@@ -13,7 +13,7 @@
         </td>
       </tr>
       <tr>
-        <th>Item</th>
+        <th>Event</th>
         <th>Description</th>
         <th>Quantity</th>
         <th>Unit Price</th>
@@ -23,13 +23,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @order.items.each do |item| %>
-        <tr id="item-<%= item.id %>">
-          <td><%= item.title %></td>
-          <td><%= item.description %></td>
-          <td><%= @order.item_quantity(item) %></td>
-          <td><%= number_to_currency(item.price) %></td>
-          <td><%= number_to_currency(@order.sub_total(item)) %></td>
+      <% @order.events.each do |event| %>
+        <tr id="event-<%= event.id %>">
+          <td><%= event.title %></td>
+          <td><%= event.description %></td>
+          <td><%= @order.event_quantity(event) %></td>
+          <td><%= number_to_currency(event.price) %></td>
+          <td><%= number_to_currency(@order.sub_total(event)) %></td>
           <td><%= @order.status %></td>
           <td><%= @order.time_updated %></td>
         </tr>
