@@ -1,11 +1,11 @@
 class UserNotifierMailer < ApplicationMailer
-  default from: 'onefanstreasure@gmail.com'
+  default from: 'nosebleedtix@gmail.com'
 
   def send_signup_email(user)
     @user = user
     mail(
       to: @user.email,
-      subject: "Welcome to One Fan's Treasure!"
+      subject: "Welcome to Nosebleed Tickets!"
       )
   end
 
