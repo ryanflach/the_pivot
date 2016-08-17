@@ -27,7 +27,9 @@ RSpec.feature "Visitor sees appropriate information" do
 
     within("#event-#{event.id}") do
       expect(page).to have_content(event.title)
-      expect(page).to have_content(event.description)
+      expect(page).to have_content(event.venue.name)
+      expect(page).to have_content(event.category.title)
+      expect(page).to have_content(event.event_date)
       expect(page).to have_content(event.price)
     end
 
