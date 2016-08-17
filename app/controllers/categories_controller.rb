@@ -3,9 +3,9 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by(slug: params[:title])
     if @category.nil?
-      redirect_to items_path
+      redirect_to events_path
     else
-      @items = @category.items.where(status: 0)
+      @events = @category.events.where(status: 0)
     end
   end
 end
