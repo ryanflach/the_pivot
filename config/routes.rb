@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   end
   resources :cart_events, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
-  resources :events, only: [:index, :show] do
+  resources :events, only: [:index] do
     get 'unavailable', on: :collection
   end
   resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
   resources :charges
-  resources :venues, only: [:index, :show]
+  resources :venues, only: [:index]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/categories/:title', to: 'categories#show', as: :category
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'
+  get '/:name', to: 'venues#show', as: :venue
+  get '/:name/:title', to: 'events#show', as: :event
 end

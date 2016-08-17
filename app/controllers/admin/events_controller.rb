@@ -9,7 +9,7 @@ class Admin::EventsController < Admin::BaseController
     @event = Event.new(event_params)
     if @event.save
       flash[:success] = 'Treasure added successfully'
-      redirect_to @event
+      redirect_to event_path(@event.venue, @event)
     else
       flash.now[:danger] = @event.errors.full_messages.join(', ')
       render :new
@@ -23,7 +23,7 @@ class Admin::EventsController < Admin::BaseController
     if @event.update_attributes(event_params)
       flash[:success] = "#{@event.title} updated successfully."
       @event.update_image_path
-      redirect_to @event
+      redirect_to event_path(@event.venue, @event)
     else
       flash.now[:danger] = @event.errors.full_messages.join(', ')
       render :edit
@@ -42,7 +42,7 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.find_by(slug: params[:id])
   end
 
 end

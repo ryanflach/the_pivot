@@ -21,7 +21,7 @@ RSpec.feature 'Admin creates an event' do
       select "#{venue.name}", from: 'Venue'
       click_on 'Add Treasure'
 
-      expect(current_path).to eq(event_path(Event.first))
+      expect(current_path).to eq(event_path(Event.first.venue, Event.first))
       expect(page).to have_content(Event.first.title)
       expect(page).to have_content(Event.first.description)
       expect(page).to have_content(Event.first.price)
@@ -49,7 +49,7 @@ RSpec.feature 'Admin creates an event' do
       # attach_file('Image', '/Users/Ryan/Desktop/No_available_image.gif')
       click_on 'Add Treasure'
 
-      expect(current_path).to eq(event_path(Event.first))
+      expect(current_path).to eq(event_path(Event.first.venue, Event.first))
       expect(page).to have_content(Event.first.title)
       expect(page).to have_content(Event.first.description)
       expect(page).to have_content(Event.first.price)

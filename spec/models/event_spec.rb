@@ -11,6 +11,8 @@ RSpec.describe Event, type: :model do
   it { should have_db_column(:status).with_options(default: 'upcoming') }
   it { should validate_presence_of :venue }
   it { should validate_presence_of :category }
+  it { should validate_presence_of :slug }
+  it { should validate_uniqueness_of(:slug).case_insensitive }
 
   it "should give venue name" do
     event = create(:event)

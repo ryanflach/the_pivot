@@ -9,6 +9,8 @@ class Event < ApplicationRecord
   validates :category, presence: true
   validates :venue, presence: true
   validates_attachment_content_type :upload_image, :content_type => /\Aimage\/.*\Z/
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
+  before_validation :create_slug
 
   after_create :set_image_path
 
@@ -32,7 +34,15 @@ class Event < ApplicationRecord
     update_image unless image_path
   end
 
+  def to_param
+    slug
+  end
+
   private
+
+  def create_slug
+    self.slug = title.parameterize if title
+  end
 
   def update_image
     update(image_path: upload_image.url)
