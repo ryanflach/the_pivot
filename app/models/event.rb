@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :order_events
   has_many :orders, through: :order_events
   has_attached_file :upload_image, default_url: 'http://i.imgur.com/5p6sEsX.jpg'
-  validates :title, presence: true, uniqueness: { scope: :venue_id }
+  validates :title, presence: true, uniqueness: { scope: [:venue_id, :date] }
   validates :price, presence: true
   validates :category, presence: true
   validates :venue, presence: true
@@ -41,10 +41,14 @@ class Event < ApplicationRecord
   private
 
   def create_slug
-    self.slug = title.parameterize if title
+    self.slug = "#{title.parameterize}-#{event_date}" if title
   end
 
   def update_image
     update(image_path: upload_image.url)
+  end
+
+  def event_date
+    date.strftime("%m-%d-%Y")
   end
 end

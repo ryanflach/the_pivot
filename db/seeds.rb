@@ -4,6 +4,7 @@ cleaning = Category.create(title: 'Cleaning')
 bathroom = Category.create(title: 'Bathroom')
 entertainment = Category.create(title: 'Entertainment')
 outdoors = Category.create(title: 'Outdoors')
+date = "2014-09-18 12:30:59 -0700"
 
 jt = Venue.create(
 name: 'Justin Timberlake',
@@ -91,7 +92,8 @@ Event.create(
   price: 44.99,
   image_path: 'http://i.imgur.com/ymvr4Qd.jpg',
   category: cleaning,
-  venue: jtt
+  venue: jtt,
+  date: date
 )
 
 Event.create(
@@ -105,7 +107,8 @@ Event.create(
   price: 109.99,
   image_path: 'http://i.imgur.com/69bNRtH.jpg',
   category: health,
-  venue: attenborough
+  venue: attenborough,
+  date: date
 )
 
 Event.create(
@@ -119,7 +122,8 @@ Event.create(
   image_path: 'http://i.imgur.com/LeTdTmw.jpg',
   category: bathroom,
   venue: jt,
-  status: 1
+  status: 1,
+  date: date
 )
 
 Event.create(
@@ -133,7 +137,8 @@ Event.create(
   price: 249.99,
   image_path: 'http://i.imgur.com/bOZoSV8.jpg',
   category: entertainment,
-  venue: attenborough
+  venue: attenborough,
+  date: date
 )
 
 Event.create(
@@ -146,7 +151,8 @@ Event.create(
   price: 52.00,
   image_path: 'http://i.imgur.com/cLgVDRa.png',
   category: entertainment,
-  venue: jt
+  venue: jt,
+  date: date
 )
 
 Event.create(
@@ -164,7 +170,8 @@ Event.create(
   category: health,
   venue: christopher,
   image_path: "http://i.imgur.com/be4TQVU.jpg",
-  status: 1
+  status: 1,
+  date: date
 )
 
 Event.create(
@@ -174,7 +181,8 @@ Event.create(
   price: 200.01,
   category: health,
   venue: gary,
-  image_path: "http://i.imgur.com/s4Z1p1G.jpg"
+  image_path: "http://i.imgur.com/s4Z1p1G.jpg",
+  date: date
 )
 
 Event.create(
@@ -188,7 +196,8 @@ Event.create(
   price: 299.99,
   category: health,
   venue: flavor,
-  image_path: "http://i.imgur.com/zVIJ8wJ.png"
+  image_path: "http://i.imgur.com/zVIJ8wJ.png",
+  date: date
 )
 
 Event.create(
@@ -198,7 +207,8 @@ Event.create(
   price: 80.05,
   category: health,
   venue: cyndi,
-  image_path: "http://i.imgur.com/LGbPdhk.jpg"
+  image_path: "http://i.imgur.com/LGbPdhk.jpg",
+  date: date
 )
 
 Event.create(
@@ -210,7 +220,8 @@ Event.create(
   price: 199.99,
   category: kitchen,
   venue: chris,
-  image_path: "http://i.imgur.com/Ea13XQf.jpg"
+  image_path: "http://i.imgur.com/Ea13XQf.jpg",
+  date: date
 )
 
 Event.create(
@@ -222,7 +233,8 @@ Event.create(
   price: 350.21,
   category: health,
   venue: hulk,
-  image_path: "http://i.imgur.com/7Muqvq2.jpg"
+  image_path: "http://i.imgur.com/7Muqvq2.jpg",
+  date: date
 )
 
 Event.create(
@@ -233,7 +245,8 @@ Event.create(
   price: 760.09,
   category: entertainment,
   venue: tom,
-  image_path: "http://i.imgur.com/XDSCwr4.jpg"
+  image_path: "http://i.imgur.com/XDSCwr4.jpg",
+  date: date
 )
 
 Event.create(
@@ -245,7 +258,8 @@ Event.create(
   price: 35.75,
   category: bathroom,
   venue: vin,
-  image_path: "http://i.imgur.com/LT9Jeka.jpg"
+  image_path: "http://i.imgur.com/LT9Jeka.jpg",
+  date: date
 )
 
 Event.create(
@@ -258,7 +272,8 @@ Event.create(
   price: 15259.99,
   category: entertainment,
   venue: leo,
-  image_path: "http://i.imgur.com/ET3lR7u.jpg"
+  image_path: "http://i.imgur.com/ET3lR7u.jpg",
+  date: date
 )
 
 Event.create(
@@ -269,7 +284,8 @@ Event.create(
   price: 250.01,
   category: kitchen,
   venue: arnold,
-  image_path: "http://i.imgur.com/r8TlVsW.jpg"
+  image_path: "http://i.imgur.com/r8TlVsW.jpg",
+  date: date
 )
 
 Event.create(
@@ -286,7 +302,8 @@ Event.create(
   category: entertainment,
   venue: charlie,
   image_path: "http://i.imgur.com/RIwQsL4.jpg",
-  status: 1
+  status: 1,
+  date: date
 )
 
 Event.create(
@@ -301,5 +318,6 @@ Event.create(
   price: 313.13,
   category: outdoors,
   venue: britney,
-  image_path: "http://i.imgur.com/XOKy4oy.jpg"
+  image_path: "http://i.imgur.com/XOKy4oy.jpg",
+  date: date
 )

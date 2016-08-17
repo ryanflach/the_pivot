@@ -5,7 +5,7 @@ RSpec.describe Event, type: :model do
   it { should belong_to :category }
   it { should have_many :order_events }
   it { should have_many(:orders).through(:order_events) }
-  it { should validate_uniqueness_of(:title).scoped_to(:venue_id) }
+  it { should validate_uniqueness_of(:title).scoped_to(:venue_id, :date) }
   it { should validate_presence_of :price }
   it { should validate_presence_of :title }
   it { should have_db_column(:status).with_options(default: 'upcoming') }
