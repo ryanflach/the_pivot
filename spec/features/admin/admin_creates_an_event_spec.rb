@@ -10,7 +10,7 @@ RSpec.feature 'Admin creates an event' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit events_path
-      click_on 'Add New Treasure'
+      click_on 'Add New Event'
 
       expect(current_path).to eq(new_admin_event_path)
 
@@ -19,7 +19,7 @@ RSpec.feature 'Admin creates an event' do
       fill_in 'Price', with: 29.99
       select "#{categories.first.title}", from: 'Category'
       select "#{venue.name}", from: 'Venue'
-      click_on 'Add Treasure'
+      click_on 'Add Event'
 
       expect(current_path).to eq(event_path(Event.first))
       expect(page).to have_content(Event.first.title)
@@ -38,7 +38,7 @@ RSpec.feature 'Admin creates an event' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit events_path
-      click_on 'Add New Treasure'
+      click_on 'Add New Event'
 
       fill_in 'Title', with: 'Creamy Ranch Dressing'
       fill_in 'Description', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
@@ -47,7 +47,7 @@ RSpec.feature 'Admin creates an event' do
       select "#{venue.name}", from: 'Venue'
       # Commented out due to this being a static asset.
       # attach_file('Image', '/Users/Ryan/Desktop/No_available_image.gif')
-      click_on 'Add Treasure'
+      click_on 'Add Event'
 
       expect(current_path).to eq(event_path(Event.first))
       expect(page).to have_content(Event.first.title)
@@ -65,10 +65,10 @@ RSpec.feature 'Admin creates an event' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit events_path
-      click_on 'Add New Treasure'
+      click_on 'Add New Event'
       fill_in 'Title', with: event.title
       fill_in 'Description', with: event.description
-      click_on 'Add Treasure'
+      click_on 'Add Event'
 
       expect(page).to have_content("Title has already been taken, Price can't be blank")
       expect(Event.count).to eq(1)
@@ -82,7 +82,7 @@ RSpec.feature 'Admin creates an event' do
 
       visit events_path
 
-      expect(page).to_not have_link('Add New Treasure')
+      expect(page).to_not have_link('Add New Event')
     end
 
     scenario 'logged-in user attempts to visit new event path' do
@@ -98,7 +98,7 @@ RSpec.feature 'Admin creates an event' do
     scenario 'visitor visits the events path' do
       visit events_path
 
-      expect(page).to_not have_link('Add New Treasure')
+      expect(page).to_not have_link('Add New Event')
     end
 
     scenario 'visitor attempts to visit new event path' do

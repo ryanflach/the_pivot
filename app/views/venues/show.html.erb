@@ -4,10 +4,10 @@
     <%= image_tag(@venue.image_path, alt: "#{@venue.name} pic", class: 'img-thumbnail show-image', style: 'float:left') %>
     <div class="event-content">
       <p>
-        Location: <%= @venue.location %>
+        <strong>Location:</strong> <%= @venue.location %>
       </p>
       <p>
-        Capacity: <%= @venue.capacity %>
+        <strong>Capacity:</strong> <%= @venue.capacity %>
       </p>
     </div>
   </div>
