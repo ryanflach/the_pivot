@@ -6,6 +6,7 @@ FactoryGirl.define do
     image_path
     category
     venue
+    date "2014-09-18 12:30:59 -0700"
     factory :sold_out_event do
       status 1
     end

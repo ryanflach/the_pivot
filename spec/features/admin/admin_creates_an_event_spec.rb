@@ -70,7 +70,7 @@ RSpec.feature 'Admin creates an event' do
       fill_in 'Description', with: event.description
       click_on 'Add Treasure'
 
-      expect(page).to have_content("Title has already been taken, Price can't be blank")
+      expect(page).to have_content("Price can't be blank")
       expect(Event.count).to eq(1)
     end
   end

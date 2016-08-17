@@ -5,12 +5,35 @@ RSpec.feature "User can see all events in a category" do
     venue = create(:venue)
 
     cat1 = Category.create(title: "Kitchen")
-    cat1.events.create(title: "Knife", description: "Steel with wood handle", price: 100, image_path: "www", venue_id: venue.id)
-    cat1.events.create(title: "Bowl", description: "Steel", price: 50, image_path: "www", venue: venue)
+    cat1.events.create(
+    title: "Knife",
+    description: "Steel with wood handle",
+    price: 100,
+    image_path: "www",
+    venue_id: venue.id,
+    date: "2014-09-18 12:30:59 -0700")
+    cat1.events.create(title: "Bowl",
+    description: "Steel",
+    price: 50,
+    image_path: "www",
+    venue: venue,
+    date: "2014-09-18 12:30:59 -0700")
 
     cat2 = Category.create(title: "Outdoor Supplies")
-    cat2.events.create(title: "Shovel", description: "Garden Shovel", price: 20.00, image_path: "www", venue: venue)
-    cat2.events.create(title: "Saw", description: "Circular", price: 400, image_path: "www", venue: venue)
+    cat2.events.create(
+    title: "Shovel",
+    description: "Garden Shovel",
+    price: 20.00,
+    image_path: "www",
+    venue: venue,
+    date: "2014-09-18 12:30:59 -0700")
+    cat2.events.create(
+    title: "Saw",
+    description: "Circular",
+    price: 400,
+    image_path: "www",
+    venue: venue,
+    date: "2014-09-18 12:30:59 -0700")
 
     visit category_path(cat2)
 
