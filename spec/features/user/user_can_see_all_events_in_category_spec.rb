@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User can see all events in a category" do
   scenario "they view page for a specific category and see all events" do
-    venue = Venue.create(name: "Tom Cruise")
+    venue = create(:venue)
 
     cat1 = Category.create(title: "Kitchen")
     cat1.events.create(title: "Knife", description: "Steel with wood handle", price: 100, image_path: "www", venue_id: venue.id)

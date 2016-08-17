@@ -1,0 +1,14 @@
+<div class="event-show">
+  <div class="well col-md-10">
+    <h1><%= @venue.name %></h1>
+    <%= image_tag(@venue.image_path, alt: "#{@venue.name} pic", class: 'img-thumbnail show-image', style: 'float:left') %>
+    <div class="event-content">
+      <p>
+        Location: <%= @venue.location %>
+      </p>
+      <p>
+        Capacity: <%= @venue.capacity %>
+      </p>
+    </div>
+  </div>
+</div>

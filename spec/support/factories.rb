@@ -14,6 +14,9 @@ FactoryGirl.define do
   factory :venue do
     name
     image_path
+    city 'Denver'
+    state 'CO'
+    capacity 500
   end
 
   factory :category do
