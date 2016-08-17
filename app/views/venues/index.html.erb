@@ -7,10 +7,10 @@
           <%= image_tag(venue.image_path, alt: "#{venue.name} pic", class: 'img-thumbnail event-image') %>
         </p>
         <p>
-          Venue: <%= venue.name %>
+          <strong>Venue:</strong> <%= venue.name %>
         </p>
         <p>
-          Location: <%= venue.location %>
+          <strong>Location:</strong> <%= venue.location %>
         </p>
         <%= content_tag :div do %>
           <%= link_to "View Venue", venue_path(venue), class: "center_button btn btn-primary" %>
