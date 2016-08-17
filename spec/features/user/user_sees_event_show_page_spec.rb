@@ -4,7 +4,7 @@ RSpec.feature "User sees event show page" do
   scenario "when they visit path for specific event" do
     event = create(:event)
 
-    visit event_path(event)
+    visit event_path(event.venue, event)
 
     expect(page).to have_css("img[src*=\"#{event.image_path}\"]")
     expect(page).to have_content(event.title)

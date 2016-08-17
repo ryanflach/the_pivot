@@ -6,7 +6,7 @@ RSpec.feature "Event can be sold out" do
     event = create(:sold_out_event)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit event_path(event)
+    visit event_path(event.venue, event)
 
     expect(page).not_to have_button("Add to Cart")
     expect(page).to have_content("SOLD OUT")

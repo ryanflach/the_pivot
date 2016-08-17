@@ -11,20 +11,20 @@ class CartEventsController < ApplicationController
   end
 
   def update
-    @cart.contents[params[:id].to_s] = params[:event][:quantity].to_i
+    @cart.contents[@event.id.to_s] = params[:event][:quantity].to_i
     flash[:success] = "Quantity of #{@event.title} updated to #{params[:event][:quantity]}."
     redirect_to cart_index_path
   end
 
   def destroy
-    @cart.contents.delete(params[:id])
-    flash[:success] = "Successfully removed #{view_context.link_to(@event.title, event_path(@event))} from your cart."
+    @cart.contents.delete(@event.id.to_s)
+    flash[:success] = "Successfully removed #{view_context.link_to(@event.title, event_path(@event.venue, @event))} from your cart."
     redirect_to cart_index_path
   end
 
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.find_by(slug: params[:id])
   end
 end
