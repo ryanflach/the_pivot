@@ -5,21 +5,81 @@ bathroom = Category.create(title: 'Bathroom')
 entertainment = Category.create(title: 'Entertainment')
 outdoors = Category.create(title: 'Outdoors')
 
-jt = Venue.create(name: 'Justin Timberlake')
-jtt = Venue.create(name: 'Jonathan Taylor Thomas')
-attenborough = Venue.create(name: 'Sir David Attenborough')
-hulk = Venue.create(name: "Hulk Hogan")
-christopher = Venue.create(name: "Christopher Walken")
-gary = Venue.create(name: "Gary Busey")
-cyndi = Venue.create(name: "Cyndi Lauper")
-chris = Venue.create(name: "Chris Farley")
-flavor = Venue.create(name: "Flavor Flave")
-vin = Venue.create(name: "Vin Diesel")
-tom = Venue.create(name: "Tom Hanks")
-leo = Venue.create(name: "Leonardo Dicaprio")
-arnold = Venue.create(name: "Arnold Schwarzenegger")
-charlie = Venue.create(name: "Charlie Sheen")
-britney = Venue.create(name: "Britney Spears")
+jt = Venue.create(
+name: 'Justin Timberlake',
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+jtt = Venue.create(
+name: 'Jonathan Taylor Thomas',
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+attenborough = Venue.create(
+name: 'Sir David Attenborough',
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+hulk = Venue.create(
+name: "Hulk Hogan",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+christopher = Venue.create(
+name: "Christopher Walken",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+gary = Venue.create(
+name: "Gary Busey",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+cyndi = Venue.create(
+name: "Cyndi Lauper",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+chris = Venue.create(
+name: "Chris Farley",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+flavor = Venue.create(
+name: "Flavor Flave",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+vin = Venue.create(
+name: "Vin Diesel",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+tom = Venue.create(
+name: "Tom Hanks",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+leo = Venue.create(
+name: "Leonardo Dicaprio",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+arnold = Venue.create(
+name: "Arnold Schwarzenegger",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+charlie = Venue.create(
+name: "Charlie Sheen",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
+britney = Venue.create(
+name: "Britney Spears",
+city: 'Denver',
+state: 'CO',
+capacity: rand(100..1000))
 
 Event.create(
   title: 'Broken Swiffer',
