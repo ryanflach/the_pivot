@@ -38,6 +38,10 @@ class Event < ApplicationRecord
     slug
   end
 
+  def event_date
+    date.strftime("%m-%d-%Y")
+  end
+
   private
 
   def create_slug
@@ -48,7 +52,4 @@ class Event < ApplicationRecord
     update(image_path: upload_image.url)
   end
 
-  def event_date
-    date.strftime("%m-%d-%Y")
-  end
 end
