@@ -12,12 +12,12 @@ RSpec.feature "User can see all events in a category" do
     cat2.events.create(title: "Shovel", description: "Garden Shovel", price: 20.00, image_path: "www", venue: venue)
     cat2.events.create(title: "Saw", description: "Circular", price: 400, image_path: "www", venue: venue)
 
-    visit category_path(cat2.title)
+    visit category_path(cat2)
 
     expect(page).to have_content "Shovel"
     expect(page).to have_content "Saw"
 
-    visit category_path(cat1.title)
+    visit category_path(cat1)
 
     expect(page).to have_content "Knife"
     expect(page).to have_content "Bowl"
