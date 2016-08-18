@@ -206,7 +206,7 @@ class Seed
           venue: Venue.offset(rand(Venue.count)).first,
           date: Faker::Time.forward(90, :evening)
         )
-        puts "#{category.title}: Event #{i+1} created."
+        puts "#{category.title}: Event #{i + 1} created."
       end
     end
   end
@@ -224,10 +224,10 @@ class Seed
     99.times do |i|
       User.create!(
         username: "#{Faker::Internet.user_name}_#{i}",
-        email: Faker::Internet.safe_email,
+        email: "#{i + 1}_#{Faker::Internet.safe_email}",
         password: "password"
       )
-      puts "Customer #{i+1} created."
+      puts "Customer #{i + 1} created."
     end
   end
 
@@ -235,7 +235,7 @@ class Seed
     User.all.each do |user|
       10.times do |i|
         Order.create!
-        puts "#{user.username}: Order #{i+1} created."
+        puts "#{user.username}: Order #{i + 1} created."
       end
     end
   end
