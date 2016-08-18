@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      send_welcome_email(@user)
       flash[:success] = "Account created successfully!"
       redirect_to dashboard_path
     else
@@ -42,4 +43,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 
+  def send_welcome_email(user)
+    UserNotifierMailer.send_signup_email(user).deliver if user.email
+  end
 end
