@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :order_items
-  has_many :items, through: :order_items
+  has_many :order_events
+  has_many :events, through: :order_events
   enum status: %w(Ordered Paid Cancelled Completed)
 
   after_create :send_order_confirmation
@@ -10,24 +10,24 @@ class Order < ApplicationRecord
     created_at.strftime("%m/%d/%Y")
   end
 
-  def sub_total(item)
-    item_quantity(item) * item.price
+  def sub_total(event)
+    event_quantity(event) * event.price
   end
 
   def total
-    items.reduce(0) { |initial, item| initial += sub_total(item) }
+    events.reduce(0) { |initial, event| initial += sub_total(event) }
   end
 
   def time_updated
     updated_at.strftime("%m-%e-%y %H:%M %p")
   end
 
-  def item_quantity(item)
-    OrderItem.find_by(order: self, item: item).quantity
+  def event_quantity(event)
+    OrderEvent.find_by(order: self, event: event).quantity
   end
 
-  def total_items
-    items.reduce(0) { |initial, item| initial += item_quantity(item) }
+  def total_events
+    events.reduce(0) { |initial, event| initial += event_quantity(event) }
   end
 
   def total_in_cents

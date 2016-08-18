@@ -10,11 +10,11 @@
     border-color: #cac9cb;
   }
 
-  .item-content {
+  .event-content {
     padding-left: 400px;
   }
 
-  .item-image {
+  .event-image {
     height: 200px;
     width: auto;
   }
@@ -24,13 +24,13 @@
   }
 
   .show-image {
-    height: 400px;
+    height: 250px;
     width: auto;
     margin-right: 10px;
     overflow: hidden;
   }
 
-  .item-show {
+  .event-show {
     padding-left: 200px;
     padding-top: 50px;
   }
@@ -92,7 +92,7 @@
     width: 500px;
   }
 
-  .item-in-list {
+  .event-in-list {
     text-align: center;
     margin-bottom: 10px;
   }

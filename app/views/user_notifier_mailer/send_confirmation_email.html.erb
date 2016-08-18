@@ -1,6 +1,6 @@
 <h1>Order Confirmation</h1>
 <p>
-  Thank you for your order. Please find the details of your order below:
+  Thank you for your order! Please find the details of your order below:
 </p>
 <br />
 <div class="well col-md-12 table-responsive" id="order-<%= @order.id %>">
@@ -13,7 +13,7 @@
         </td>
       </tr>
       <tr>
-        <th>Item</th>
+        <th>Event</th>
         <th>Description</th>
         <th>Quantity</th>
         <th>Unit Price</th>
@@ -23,13 +23,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @order.items.each do |item| %>
-        <tr id="item-<%= item.id %>">
-          <td><%= item.title %></td>
-          <td><%= item.description %></td>
-          <td><%= @order.item_quantity(item) %></td>
-          <td><%= number_to_currency(item.price) %></td>
-          <td><%= number_to_currency(@order.sub_total(item)) %></td>
+      <% @order.events.each do |event| %>
+        <tr id="event-<%= event.id %>">
+          <td><%= event.title %></td>
+          <td><%= event.description %></td>
+          <td><%= @order.event_quantity(event) %></td>
+          <td><%= number_to_currency(event.price) %></td>
+          <td><%= number_to_currency(@order.sub_total(event)) %></td>
           <td><%= @order.status %></td>
           <td><%= @order.time_updated %></td>
         </tr>
@@ -43,5 +43,5 @@
 </table>
 <br />
 <p>
-  Sincerely, <br />One Fan's Treasure
+  Sincerely, <br />Nosebleed Tickets
 </p>
