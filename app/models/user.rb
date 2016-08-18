@@ -6,9 +6,7 @@ class User < ApplicationRecord
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
 
   enum role: %w(customer venue_admin platform_admin)
-
-  after_create :send_welcome_email
-
+  
   def date_registered
     created_at.strftime("%m/%d/%Y")
   end
