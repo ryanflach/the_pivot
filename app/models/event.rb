@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   has_many :orders, through: :order_events
   has_attached_file :upload_image, default_url: 'http://i.imgur.com/5p6sEsX.jpg'
   validates :title, presence: true, uniqueness: { scope: [:venue_id, :date] }
-  validates :price, presence: true
+  validates :price, presence: true, :numericality => {:greater_than => 0}
   validates :category, presence: true
   validates :venue, presence: true
   validates_attachment_content_type :upload_image, :content_type => /\Aimage\/.*\Z/
