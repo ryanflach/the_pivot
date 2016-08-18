@@ -234,7 +234,13 @@ class Seed
   def create_orders
     User.all.each do |user|
       10.times do |i|
-        Order.create!
+        order = user.orders.create!
+        events = Event.offset(i).limit(rand(1..10))
+        order.events << events
+        events.each do |event|
+          order_item = OrderEvent.find_by(order: order, event: event)
+          order_item.update(quantity: rand(1..10))
+        end
         puts "#{user.username}: Order #{i + 1} created."
       end
     end
