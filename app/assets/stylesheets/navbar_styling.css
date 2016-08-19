@@ -15,7 +15,8 @@
 
 .navbar-default {
   min-height: 80px;
-  max-height: 80px;
+  max-height: 130px;
+  overflow: visible;
 }
 
 .navbar-default > ul {
@@ -29,6 +30,10 @@
 
 .logo {
   width: 30%;
+}
+
+.float-right {
+  float: right;
 }
 
 .navbar-default .navbar-nav>li>a {

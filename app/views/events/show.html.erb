@@ -1,5 +1,5 @@
 <div class="event-show">
-  <div class="well col-md-10">
+  <div class="well col-md-10 padded">
     <h1><%= @event.title %></h1>
     <%= image_tag(@event.image_path, alt: "#{@event.title} pic", class: 'img-thumbnail show-image', style: 'float:left') %>
     <div class="event-content">
@@ -9,9 +9,9 @@
       <p><em><%= @event.description %></em></p>
       <p><strong><%= number_to_currency(@event.price) %></strong></p>
       <% if @event.past_event? %>
-        <p><%= link_to 'SOLD OUT', cart_events_path(event_id: @event.id), class: 'btn btn-danger', disabled: 'disabled' %></p>
+        <p><%= link_to 'SOLD OUT', cart_events_path(event_id: @event.id), class: 'center_button btn btn-danger', disabled: 'disabled' %></p>
       <% else %>
-        <p><%= button_to 'Add to Cart', cart_events_path(event_id: @event.id), class: 'btn btn-default' %></p>
+        <p><%= button_to 'Add to Cart', cart_events_path(event_id: @event.id), class: 'center_button btn btn-primary' %></p>
         <% if current_admin? %>
           <p><%= link_to 'Edit Event', edit_admin_event_path(@event), class: 'btn btn-default' %></p>
         <% end %>
