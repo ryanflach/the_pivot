@@ -27,6 +27,10 @@ class Order < ApplicationRecord
   end
 
   def total_events
+    events.uniq.count
+  end
+
+  def total_tickets
     events.reduce(0) { |initial, event| initial += event_quantity(event) }
   end
 
