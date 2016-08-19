@@ -41,7 +41,7 @@
     font-size: 16px;
     padding-top: 80px;
     color: #555;
-    background-image: url('http://i.imgur.com/IZno6ik.png');
+    background-image: url('http://i.imgur.com/fcozS1n.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -65,7 +65,7 @@
   }
 
   .center {
-      right:46%;
+      right:50%;
       bottom: 35%;
       transform: translate(52%,25%);
       position: absolute;
@@ -73,7 +73,8 @@
 
   .page-content {
     padding-right: 15px;
-    padding-left: 150px;
+    padding-left: 15px;
+    /*padding-bottom: 25px;*/
   }
 
   th, td {
@@ -141,4 +142,8 @@
     border-color: rgba(85, 85, 85, 0.4);
     margin-bottom: 20px;
     color: rgb(85, 85, 85);
+  }
+
+  h1 {
+    color: #0f171d;
   }

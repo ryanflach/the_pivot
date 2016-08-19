@@ -33,19 +33,19 @@ RSpec.describe 'Cart', type: :model do
   it 'should be able to calculate total events' do
     cart = Cart.new('1' => 3, '4' => 7)
 
-    expect(cart.total_events).to eq(10)
+    expect(cart.total_tickets).to eq(10)
   end
 
   it 'should return 0.00 as total cost for an empty cart' do
     cart = Cart.new(nil)
 
-    expect(cart.total_events).to eq(0.00)
+    expect(cart.total_tickets).to eq(0.00)
   end
 
   it 'should return 0 as total events for an empty cart' do
     cart = Cart.new(nil)
 
-    expect(cart.total_events).to eq(0)
+    expect(cart.total_tickets).to eq(0)
   end
 
   it 'should return an array of CartEvents for its contents' do
