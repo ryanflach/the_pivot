@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :cart_events, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
   resources :events, only: [:index] do
-    get 'unavailable', on: :collection
+    get 'occurred', on: :collection
   end
   resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
