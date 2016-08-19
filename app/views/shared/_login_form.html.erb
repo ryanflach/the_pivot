@@ -4,15 +4,16 @@
     <%= f.label :username %>
     <%= f.text_field :username %>
   </p>
+  <% unless login_path? %>
   <p>
     <%= f.label :email %>
     <%= f.text_field :email %>
   </p>
+  <% end %>
   <p>
     <%= f.label :password %>
     <%= f.password_field :password %>
   </p>
-
   <center>
     <%= f.submit button, class: "center_button btn btn-#{btn_class}"%>
   </center>
