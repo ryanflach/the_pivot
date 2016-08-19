@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   include UsersHelper
 
-  before_action :verify_logged_in, only: [:show]
-  before_action :verify_admin, only: [:edit, :update]
+  before_action :verify_logged_in, only: [:show, :edit]
 
   def new
     @user = User.new
@@ -26,12 +25,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if current_user.id.to_s != params[:id]
+      flash[:danger] = "You can only edit your own account"
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_dashboard_index_path
+      redirect_to dashboard_path
     else
       render :edit
     end

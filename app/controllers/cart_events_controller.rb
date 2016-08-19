@@ -6,7 +6,7 @@ class CartEventsController < ApplicationController
     event = Event.find(params[:event_id])
     @cart.add_event(event.id)
     session[:cart] = @cart.contents
-    flash[:success] = "#{event.title} added to cart successfully. Cart now contains #{pluralize(@cart.total_events, 'event')}."
+    flash[:success] = "#{event.title} added to cart successfully. Cart now contains #{pluralize(@cart.total_tickets, 'event')}."
     redirect_to request.referrer
   end
 

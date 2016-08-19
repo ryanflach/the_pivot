@@ -10,7 +10,7 @@ class Cart
     @contents[event_id.to_s] += 1
   end
 
-  def total_events
+  def total_tickets
     contents.values.sum
   end
 
