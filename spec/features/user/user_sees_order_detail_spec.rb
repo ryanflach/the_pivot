@@ -24,7 +24,7 @@ RSpec.feature "User sees one order's detail" do
 
     within("#event-#{event.id}") do
       expect(page).to have_content(event.title)
-      expect(page).to have_content(event.description)
+      expect(page).to have_content(event.supporting_act)
       expect(page).to have_content(order.event_quantity(event))
       expect(page).to have_content(event.price)
       expect(page).to have_content(order.sub_total(event))

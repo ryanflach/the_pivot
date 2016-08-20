@@ -4,7 +4,7 @@
       <table class="table">
         <thead>
           <tr>
-            <td colspan="5" class="text-left">
+            <td colspan="6" class="text-left">
               <strong>Order # <%= @order.id %></strong>
               <p><strong>Placed: <%= @order.date %></strong></p>
               <strong>Status: <%= @order.status %></strong>
@@ -12,7 +12,7 @@
           </tr>
           <tr>
             <th>Event</th>
-            <th>Description</th>
+            <th>Supporting Act</th>
             <th>Quantity</th>
             <th>Unit Price</th>
             <th>Subtotal</th>
@@ -23,7 +23,7 @@
           <% @order.events.each do |event| %>
             <tr id="event-<%= event.id %>">
               <td><%= link_to event.title, event_path(event.venue, event) %></td>
-              <td><%= event.description %></td>
+              <td><%= event.supporting_act %></td>
               <td><%= @order.event_quantity(event) %></td>
               <td><%= number_to_currency(event.price) %></td>
               <td><%= number_to_currency(@order.sub_total(event)) %></td>

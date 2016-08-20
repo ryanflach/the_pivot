@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817220846) do
+ActiveRecord::Schema.define(version: 20160820161913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20160817220846) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
-    t.text     "description"
     t.decimal  "price",                     precision: 9, scale: 2
     t.integer  "category_id"
     t.datetime "created_at",                                                                        null: false
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160817220846) do
     t.integer  "venue_id"
     t.string   "slug"
     t.datetime "date",                                              default: '2014-09-18 12:30:59'
+    t.text     "supporting_act"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
     t.index ["venue_id"], name: "index_events_on_venue_id", using: :btree
   end
@@ -84,9 +84,12 @@ ActiveRecord::Schema.define(version: 20160817220846) do
     t.text     "state"
     t.integer  "capacity"
     t.string   "slug"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_venues_on_user_id", using: :btree
   end
 
   add_foreign_key "events", "categories"
   add_foreign_key "order_events", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "venues", "users"
 end

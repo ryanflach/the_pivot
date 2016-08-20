@@ -7,24 +7,16 @@
   */
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0.77);
+    background-color: rgba(255, 255, 255, 0.80);
     border: none;
     position: fixed;
     width: 100%;
 }
 
-.navbar-fixed-left {
-  width: 130px;
-  position: fixed;
-  border-radius: 0;
-  height: 100%;
-  padding-top: 50px;
-  padding-left: 0px;
-}
-
 .navbar-default {
   min-height: 80px;
-  max-height: 80px;
+  max-height: 130px;
+  overflow: visible;
 }
 
 .navbar-default > ul {
@@ -32,29 +24,16 @@
 }
 
 .user-info {
-  float: none;
   position: fixed;
-  padding-left: 87%;
-  padding-top: 10px;
-}
-
-.navbar-fixed-left .navbar-nav > li {
-  float: none;
-  width: 130px;
+  padding-left: 150px;
 }
 
 .logo {
   width: 30%;
 }
 
-#categories {
-  padding-left: 8%;
-}
-
-.category:hover {
-  width: 100%;
-  background: #eeeeee;
-  text-decoration: none;
+.float-right {
+  float: right;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -63,4 +42,8 @@
 
 .navbar-default .navbar-nav>li>a:hover {
     color: rgb(59, 142, 174);
+}
+
+.navbar-last-nav {
+  padding-right: 20px;
 }

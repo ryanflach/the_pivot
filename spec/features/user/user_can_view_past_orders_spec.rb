@@ -17,7 +17,7 @@ RSpec.feature "User can view past orders" do
 
     within("#order-#{order.id}") do
       expect(page).to have_content(order.date)
-      expect(page).to have_content(order.total_events)
+      expect(page).to have_content(order.total_tickets)
       expect(page).to have_content(order.total)
     end
   end

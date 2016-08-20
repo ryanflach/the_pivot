@@ -30,13 +30,15 @@ RSpec.feature "User information is secure from others" do
     expect(page).to have_link("Login or Create Account to Checkout")
 
     visit edit_user_path(User.first)
-    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
+    expect(page).to have_content("Please login to view this page")
   end
 
   scenario "logged-in user attempts to visit another user's show page" do
     place_order
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    user1 = create(:user)
+    user2 = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
     visit order_path(Order.first)
 
@@ -46,8 +48,9 @@ RSpec.feature "User information is secure from others" do
     visit admin_dashboard_index_path
     expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
 
-    visit edit_user_path(user)
-    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
+    visit edit_user_path(user2)
+    expect(page).to have_content("You can only edit your own account")
+    expect(current_path).to eq(edit_user_path(user1))
   end
 end
 

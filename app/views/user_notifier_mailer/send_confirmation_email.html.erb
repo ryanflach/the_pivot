@@ -3,6 +3,8 @@
   Thank you for your order! Please find the details of your order below:
 </p>
 <br />
+<%= image_tag @qr %>
+<br />
 <div class="well col-md-12 table-responsive" id="order-<%= @order.id %>">
   <table class="table">
     <thead>
@@ -14,7 +16,7 @@
       </tr>
       <tr>
         <th>Event</th>
-        <th>Description</th>
+        <th>Supporting Act</th>
         <th>Quantity</th>
         <th>Unit Price</th>
         <th>Subtotal</th>
@@ -26,7 +28,7 @@
       <% @order.events.each do |event| %>
         <tr id="event-<%= event.id %>">
           <td><%= event.title %></td>
-          <td><%= event.description %></td>
+          <td><%= event.supporting_act %></td>
           <td><%= @order.event_quantity(event) %></td>
           <td><%= number_to_currency(event.price) %></td>
           <td><%= number_to_currency(@order.sub_total(event)) %></td>

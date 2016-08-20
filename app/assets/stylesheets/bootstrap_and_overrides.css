@@ -8,6 +8,20 @@
   .well {
     background-color: rgba(255, 255, 255, 0.80);
     border-color: #cac9cb;
+    overflow: auto;
+  }
+
+  .padded {
+    width: 95%;
+  }
+
+  .pad-right {
+    padding-right: 10%;
+  }
+
+
+  .float-left {
+    float: left;
   }
 
   .event-content {
@@ -19,19 +33,32 @@
     width: auto;
   }
 
+  .venue-image {
+    width: 70%;
+    padding-left: 2%;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    float: left;
+  }
+
+  .fit-width {
+    width: 100%;
+  }
+
   .error-image {
     margin-top: 5%;
   }
 
   .show-image {
-    height: 250px;
-    width: auto;
+    height: auto;
+    width: 375px;
     margin-right: 10px;
-    overflow: hidden;
+    margin-top: 15px;
   }
 
   .event-show {
-    padding-left: 200px;
+    padding-left: 10%;
+    padding-right: 5%;
     padding-top: 50px;
   }
 
@@ -41,11 +68,15 @@
     font-size: 16px;
     padding-top: 80px;
     color: #555;
-    background-image: url('http://i.imgur.com/IZno6ik.png');
+    background-image: url('http://i.imgur.com/WtYG1kl.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  @media screen and (max-width: 1184px) {
+    body { padding-top: 160px; }
+}
 
   input
   {
@@ -65,15 +96,17 @@
   }
 
   .center {
-      right:46%;
+      right:50%;
       bottom: 35%;
       transform: translate(52%,25%);
       position: absolute;
+      max-height: 55%;
   }
 
   .page-content {
     padding-right: 15px;
-    padding-left: 150px;
+    padding-left: 15px;
+    /*padding-bottom: 25px;*/
   }
 
   th, td {
@@ -141,4 +174,8 @@
     border-color: rgba(85, 85, 85, 0.4);
     margin-bottom: 20px;
     color: rgb(85, 85, 85);
+  }
+
+  h1 {
+    color: #0f171d;
   }
