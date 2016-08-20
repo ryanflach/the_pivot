@@ -1,6 +1,7 @@
 class Seed
   def initialize
     create_categories
+    create_nate_business_admin
     create_venues
     create_events
     create_josh_customer
@@ -37,7 +38,8 @@ class Seed
       city: 'Chicago',
       state: 'IL',
       capacity: 41268,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -45,7 +47,8 @@ class Seed
       city: 'Morrison',
       state: 'CO',
       capacity: 9525,
-      image_path: 'http://i.imgur.com/JGQP86m.jpg'
+      image_path: 'http://i.imgur.com/JGQP86m.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -53,7 +56,8 @@ class Seed
       city: 'Bronx',
       state: 'NY',
       capacity: 54251,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -61,7 +65,8 @@ class Seed
       city: 'Denver',
       state: 'CO',
       capacity: 5000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -69,7 +74,8 @@ class Seed
       city: 'Los Angeles',
       state: 'CA',
       capacity: 2265,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -77,7 +83,8 @@ class Seed
       city: 'New York',
       state: 'NY',
       capacity: 2804,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -85,7 +92,8 @@ class Seed
       city: 'Sydney',
       state: 'NSW',
       capacity: 6000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -93,7 +101,8 @@ class Seed
       city: 'New York',
       state: 'NY',
       capacity: 18200,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -101,7 +110,8 @@ class Seed
       city: 'Denver',
       state: 'CO',
       capacity: 18007,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -109,7 +119,8 @@ class Seed
       city: 'George',
       state: 'WA',
       capacity: 27500,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -117,7 +128,8 @@ class Seed
       city: 'San Francisco',
       state: 'CA',
       capacity: 5251,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -125,7 +137,8 @@ class Seed
       city: 'San Diego',
       state: 'CA',
       capacity: 125000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -133,7 +146,8 @@ class Seed
       city: 'State College',
       state: 'PA',
       capacity: 107282,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -141,7 +155,8 @@ class Seed
       city: 'Glendale',
       state: 'AZ',
       capacity: 63400,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -149,7 +164,8 @@ class Seed
       city: 'St. Paul',
       state: 'MN',
       capacity: 17000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -157,7 +173,8 @@ class Seed
       city: 'Pittsburgh',
       state: 'PA',
       capacity: 38362,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -165,7 +182,8 @@ class Seed
       city: 'Arlington',
       state: 'TX',
       capacity: 80000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -173,7 +191,8 @@ class Seed
       city: 'Pyongyang',
       state: 'NK',
       capacity: 150000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -181,7 +200,8 @@ class Seed
       city: 'Manila',
       state: 'PI',
       capacity: 80000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
@@ -189,7 +209,8 @@ class Seed
       city: 'Barcelona',
       state: 'SP',
       capacity: 99354,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg'
+      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
   end
@@ -219,6 +240,15 @@ class Seed
     )
     puts "Customer Josh created."
   end
+
+  def create_nate_business_admin
+    User.create!(
+      username: "nate@turing.io",
+      email: "nate@turing.io",
+      password: "password",
+      role: 1
+    )
+    puts "Business Admin Nate created."  end
 
   def create_customers
     99.times do |i|
