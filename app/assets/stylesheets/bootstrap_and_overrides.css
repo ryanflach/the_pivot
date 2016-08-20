@@ -50,9 +50,10 @@
   }
 
   .show-image {
-    height: 250px;
-    width: auto;
+    height: auto;
+    width: 375px;
     margin-right: 10px;
+    margin-top: 15px;
   }
 
   .event-show {
@@ -74,8 +75,8 @@
   }
 
   @media screen and (max-width: 1184px) {
-    body { padding-top: 160px; }
-}
+      body { padding-top: 160px; }
+  }
 
   input
   {
