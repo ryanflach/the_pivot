@@ -199,7 +199,7 @@ class Seed
       50.times do |i|
         Event.create!(
           title: "#{Faker::Book.title} #{Faker::Company.profession.capitalize}",
-          description: Faker::ChuckNorris.fact,
+          supporting_act: Faker::App.author,
           price: Faker::Commerce.price,
           image_path: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200",
           category: category,
