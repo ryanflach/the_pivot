@@ -56,7 +56,7 @@ class Seed
       city: 'Bronx',
       state: 'NY',
       capacity: 54251,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/6kpS9z5.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -65,7 +65,7 @@ class Seed
       city: 'Denver',
       state: 'CO',
       capacity: 5000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/SIccgUE.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :events, only: [:new, :create, :edit, :update]
+    # get '/edit/:name', to: 'venues#edit', as: :edit_venue
+    resources :venues, param: :name, only: [:edit, :update]
   end
   resources :cart_events, only: [:create, :update, :destroy]
   resources :cart, only: [:index]

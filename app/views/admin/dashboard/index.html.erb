@@ -21,6 +21,7 @@
     </table>
     <div class='col-md-12'>
       <%= link_to 'Manage My Account', edit_user_path(current_user), class: 'btn btn-default' %>
+      <%= link_to 'Manage Venue', edit_admin_venue_path(name: @venue.slug), class: 'btn btn-default' %>
       <%= link_to 'View My Events', venue_path(name: @venue.slug), class: 'btn btn-default' %>
     </div>
   </div>
