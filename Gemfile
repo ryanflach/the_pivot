@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'twitter-bootstrap-rails'
 gem 'faker'
 gem 'email_validator', require: 'email_validator/strict'
-gem 'rqrcode_png'
+gem 'google-qr'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
