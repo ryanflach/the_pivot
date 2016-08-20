@@ -18,6 +18,7 @@ FactoryGirl.define do
     city 'Denver'
     state 'CO'
     capacity 500
+    admin
   end
 
   factory :category do
