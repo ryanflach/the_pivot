@@ -59,7 +59,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'nosebleed-tix.herokuapp.com' }
 
-  config.action_mailer.asset_host = { host: 'nosebleed-tix.herokuapp.com' }
+  config.action_mailer.asset_host = { host: 'http://nosebleed-tix.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
