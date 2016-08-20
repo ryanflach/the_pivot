@@ -2,8 +2,7 @@
 <p>
   Thank you for your order! Please find the details of your order below:
 </p>
-<br />
-<%= image_tag @qr %>
+<%= image_tag @qr.to_s %>
 <br />
 <div class="well col-md-12 table-responsive" id="order-<%= @order.id %>">
   <table class="table">
