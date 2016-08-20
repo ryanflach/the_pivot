@@ -12,7 +12,7 @@ class UserNotifierMailer < ApplicationMailer
   def send_confirmation_email(user, order)
     @user = user
     @order = order
-    @qr = RQRCode::QRCode.new(order_url(@order)).to_img.resize(200, 200).to_data_url
+    @qr = GoogleQR.new(data: order_url(@order), size: "150x150", margin: 4, error_correction: "L")
     mail(
       to: @user.email,
       subject: "Thank you for your order - Order ##{@order.id}"
