@@ -7,13 +7,13 @@ RSpec.feature "User can see all events in a category" do
     cat1 = Category.create(title: "Kitchen")
     cat1.events.create(
     title: "Knife",
-    description: "Steel with wood handle",
+    supporting_act: "Steel with wood handle",
     price: 100,
     image_path: "www",
     venue_id: venue.id,
     date: "2014-09-18 12:30:59 -0700")
     cat1.events.create(title: "Bowl",
-    description: "Steel",
+    supporting_act: "Steel",
     price: 50,
     image_path: "www",
     venue: venue,
@@ -22,14 +22,14 @@ RSpec.feature "User can see all events in a category" do
     cat2 = Category.create(title: "Outdoor Supplies")
     cat2.events.create(
     title: "Shovel",
-    description: "Garden Shovel",
+    supporting_act: "Garden Shovel",
     price: 20.00,
     image_path: "www",
     venue: venue,
     date: "2014-09-18 12:30:59 -0700")
     cat2.events.create(
     title: "Saw",
-    description: "Circular",
+    supporting_act: "Circular",
     price: 400,
     image_path: "www",
     venue: venue,

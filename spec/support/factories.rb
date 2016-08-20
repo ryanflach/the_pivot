@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :event do
     title
-    description "Definitely used by this venue at least once"
+    supporting_act "Norm Macdonald"
     price 199.99
     image_path
     category

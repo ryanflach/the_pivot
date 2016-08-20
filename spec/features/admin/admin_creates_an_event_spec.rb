@@ -15,7 +15,7 @@ RSpec.feature 'Admin creates an event' do
       expect(current_path).to eq(new_admin_event_path)
 
       fill_in 'Title', with: 'Creamy Ranch Dressing'
-      fill_in 'Description', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
+      fill_in 'Supporting Act', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
       fill_in 'Price', with: 29.99
       select "#{categories.first.title}", from: 'Category'
       select "#{venue.name}", from: 'Venue'
@@ -23,9 +23,9 @@ RSpec.feature 'Admin creates an event' do
 
       expect(current_path).to eq(event_path(Event.first.venue, Event.first))
       expect(page).to have_content(Event.first.title)
-      expect(page).to have_content(Event.first.description)
+      expect(page).to have_content(Event.first.supporting_act)
       expect(page).to have_content(Event.first.price)
-      expect(page).to have_css("img[src*='#{Event.first.image_path}']")
+      expect(page).to have_css("img[src*='#{Event.first.venue.image_path}']")
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.feature 'Admin creates an event' do
       click_on 'Add New Event'
 
       fill_in 'Title', with: 'Creamy Ranch Dressing'
-      fill_in 'Description', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
+      fill_in 'Supporting Act', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
       fill_in 'Price', with: 29.99
       select "#{categories.first.title}", from: 'Category'
       select "#{venue.name}", from: 'Venue'
@@ -51,9 +51,9 @@ RSpec.feature 'Admin creates an event' do
 
       expect(current_path).to eq(event_path(Event.first.venue, Event.first))
       expect(page).to have_content(Event.first.title)
-      expect(page).to have_content(Event.first.description)
+      expect(page).to have_content(Event.first.supporting_act)
       expect(page).to have_content(Event.first.price)
-      expect(page).to have_css("img[src*='#{Event.first.image_path}']")
+      expect(page).to have_css("img[src*='#{Event.first.venue.image_path}']")
     end
   end
 
@@ -67,7 +67,7 @@ RSpec.feature 'Admin creates an event' do
       visit events_path
       click_on 'Add New Event'
       fill_in 'Title', with: event.title
-      fill_in 'Description', with: event.description
+      fill_in 'Supporting Act', with: event.supporting_act
       click_on 'Add Event'
 
       expect(page).to have_content("Price can't be blank")

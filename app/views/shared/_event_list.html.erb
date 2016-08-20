@@ -1,8 +1,8 @@
 <div id="events_list">
   <% @events.each do |event| %>
-    <div class='event' data-all="<%= event.title %> <%= event.venue_name %> <%= event.category.title %>">
+    <div class='event' data-all="<%= event.title %> <%= event.venue_name %> <%= event.category.title %> <%= event.supporting_act %>">
       <div class ="well col-md-3 event-in-list" id="event-<%= event.id %>">
-        <a id="popoverData" href="<%= event_path(event.venue, event) %>" data-content="<%= event.description %>" rel="popover" data-placement="bottom" data-original-title="Description" data-trigger="hover">
+        <a id="popoverData" href="<%= event_path(event.venue, event) %>" data-content="<%= event.supporting_act %>" rel="popover" data-placement="bottom" data-original-title="Supporting Act" data-trigger="hover">
           <%= event.title %>
         </a>
         <p>

@@ -25,8 +25,8 @@ RSpec.feature "User can edit account" do
   end
 
   scenario "user cannot change another user's account" do
-    user1 = create(:user) #240
-    user2 = create(:user) #241
+    user1 = create(:user)
+    user2 = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
     visit edit_user_path(user2)
