@@ -1,55 +1,65 @@
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-brand">
-    <%= link_to image_tag('logo-big.png', class: 'logo'), root_path %>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-brand">
+      <%= link_to image_tag('logo-big.png', class: 'logo'), root_path %>
+    </div>
   </div>
-  <% if current_user %>
-    <ul class="nav navbar-nav user-info">
-      <li>
-        <%= link_to "Logged in as #{current_user.username}", dashboard_path %>
-      </li>
-    </ul>
-  <% end %>
-  <ul class="nav navbar-nav navbar-right float-right">
-    <li>
-      <%= link_to venues_path do %>
-        <i class="fa fa-building"></i> Venues
-      <% end %>
-    </li>
-    <li>
-      <%= link_to events_path do %>
-        <i class="fa fa-align-justify"></i> All Events
-      <% end %>
-    </li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspop="true" aria-expanded="false">Categories <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <% categories.each do |category| %>
-          <li><%= link_to "#{category.title}", category_path(category) %></li>
-        <% end %>
-      </ul>
-    </li>
-    <li class="navbar-last-nav">
-      <%= mail_to "nosebleedtix@gmail.com" do %>
-        <i class="fa fa-envelope"></i> Email Us
-      <% end %>
-    </li>
-    <li>
-      <%= link_to cart_index_path do %>
-      <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_tickets %>
-      <% end %>
-    </li>
+  <div class="navbar-collapse collapse">
     <% if current_user %>
-      <li>
-        <%= link_to logout_path, method: :delete do %>
-        <i class="fa fa-sign-out"></i> Logout
-        <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to login_path do %>
-        <i class="fa fa-sign-in"></i> Login
-        <% end %>
-      </li>
+      <ul class="nav navbar-nav user-info">
+        <li>
+          <%= link_to "Logged in as #{current_user.username}", dashboard_path %>
+        </li>
+      </ul>
     <% end %>
-  </ul>
+    <ul class="nav navbar-nav navbar-right float-right">
+      <li>
+        <%= link_to venues_path do %>
+          <i class="fa fa-building"></i> Venues
+        <% end %>
+      </li>
+      <li>
+        <%= link_to events_path do %>
+          <i class="fa fa-align-justify"></i> All Events
+        <% end %>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspop="true" aria-expanded="false">Categories <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <% categories.each do |category| %>
+            <li><%= link_to "#{category.title}", category_path(category) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="navbar-last-nav">
+        <%= mail_to "nosebleedtix@gmail.com" do %>
+          <i class="fa fa-envelope"></i> Email Us
+        <% end %>
+      </li>
+      <li>
+        <%= link_to cart_index_path do %>
+        <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_tickets %>
+        <% end %>
+      </li>
+      <% if current_user %>
+        <li>
+          <%= link_to logout_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i> Logout
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to login_path do %>
+          <i class="fa fa-sign-in"></i> Login
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
