@@ -59,4 +59,5 @@ gem 'figaro'
 gem 'stripe'
 gem 'paperclip'
 gem 'aws-sdk'
-gem "omniauth-twitter"
+gem 'omniauth-twitter'
+gem 'simplecov', require: false, group: :test
