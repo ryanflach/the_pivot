@@ -11,6 +11,12 @@
     overflow: auto;
   }
 
+  .center {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10%;
+  }
+
   .padded {
     width: 95%;
   }
@@ -62,24 +68,16 @@
     padding-top: 50px;
   }
 
-  body
-  {
+  body {
     font-family: 'Hind', sans-serif;
     font-size: 16px;
-    padding-top: 80px;
     color: #555;
     background-image: url('http://i.imgur.com/WtYG1kl.png');
     background-attachment: fixed;
-    background-repeat: no-repeat;
     background-size: cover;
   }
 
-  @media screen and (max-width: 1184px) {
-      body { padding-top: 160px; }
-  }
-
-  input
-  {
+  input {
     float: right;
   }
 
@@ -93,14 +91,6 @@
 
   .home {
     padding-bottom: 50%;
-  }
-
-  .center {
-      right:50%;
-      bottom: 35%;
-      transform: translate(52%,25%);
-      position: absolute;
-      max-height: 55%;
   }
 
   .page-content {
