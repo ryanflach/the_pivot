@@ -10,7 +10,7 @@ RSpec.feature "User can edit account" do
     fill_in "Password", with: 'password'
 
     click_button "Login"
-    click_on "Manage Account"
+    click_on "Manage My Account"
 
     fill_in "Username", with: "Matt"
     fill_in "Email", with: "matt@example.com"
