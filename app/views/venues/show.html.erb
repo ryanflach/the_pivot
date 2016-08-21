@@ -23,7 +23,10 @@
             <th>Category</th>
             <th>Date</th>
             <th>Price</th>
-            <th>Purchase</th>
+            <th class='text-center'>Purchase</th>
+            <% if this_venues_admin? %>
+              <th class='text-center'>Edit</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -34,10 +37,13 @@
               <td><%= event.event_date %></td>
               <td><%= number_to_currency(event.price) %></td>
               <td>
-                <%= content_tag :div do %>
-                  <%= button_to "Add to Cart", cart_events_path(event_id: event.id), class: "center_button btn btn-sm btn-primary" %>
-                <% end %>
+                <%= button_to "Add to Cart", cart_events_path(event_id: event.id), class: "btn btn-sm btn-primary" %>
               </td>
+              <% if this_venues_admin? %>
+                <td>
+                  <%= link_to 'Manage Event', edit_admin_event_path(event), class: 'btn btn-default btn-sm' %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
