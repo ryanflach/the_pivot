@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :verify_logged_in, :categories, :current_admin?
+  helper_method :current_user,
+                :verify_logged_in,
+                :categories,
+                :current_admin?,
+                :platform_admin?,
+                :current_venue_admin
   before_action :set_cart
 
   def set_cart
@@ -22,15 +27,15 @@ class ApplicationController < ActionController::Base
     current_user && !current_user.customer?
   end
 
+  def platform_admin?
+    current_user && current_user.platform_admin?
+  end
+
+  def current_venue_admin
+    Venue.find_by(admin: current_user) if current_admin?
+  end
+
   def categories
     @categories = Category.all
   end
-
-  # def default_url_options
-  #   if Rails.env.production?
-  #     { host: 'nosebleed-tix.herokuapp.com'}
-  #   else
-  #     {}
-  #   end
-  # end
 end

@@ -6,9 +6,9 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(params_with_venue)
     if @event.save
-      flash[:success] = 'Treasure added successfully'
+      flash[:success] = 'Event Added Successfully!'
       redirect_to event_path(@event.venue, @event)
     else
       flash.now[:danger] = @event.errors.full_messages.join(', ')
@@ -34,11 +34,19 @@ class Admin::EventsController < Admin::BaseController
 
   def event_params
     params.require(:event).permit(:title,
-                                 :supporting_act,
-                                 :price,
-                                 :category_id,
-                                 :venue_id,
-                                 :upload_image)
+                                  :supporting_act,
+                                  :price,
+                                  :date,
+                                  :category_id,
+                                  :venue_id,
+                                  :upload_image)
+  end
+
+  def params_with_venue
+    return event_params if platform_admin?
+    form_params = event_params
+    form_params[:venue_id] = current_venue_admin.id
+    form_params
   end
 
   def set_event
