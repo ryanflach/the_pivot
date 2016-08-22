@@ -16,8 +16,12 @@
         <p><%= link_to 'SOLD OUT', cart_events_path(event_id: @event.id), class: 'center_button btn btn-danger', disabled: 'disabled' %></p>
       <% else %>
         <p><%= button_to 'Add to Cart', cart_events_path(event_id: @event.id), class: 'center_button btn btn-primary' %></p>
+        <br />
         <% if current_admin? %>
-          <p><%= link_to 'Edit Event', edit_admin_event_path(@event), class: 'btn btn-default' %></p>
+          <p>
+            <%= link_to 'Edit Event', edit_admin_event_path(@event), class: 'btn btn-default' %>
+            <%= link_to "Delete Event", admin_event_path(@event), method: :delete, class: 'btn btn-sm btn-danger' %>
+          </>
         <% end %>
       <% end %>
     </div>

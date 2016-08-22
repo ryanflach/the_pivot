@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :events, only: [:new, :create, :edit, :update]
-    # get '/edit/:name', to: 'venues#edit', as: :edit_venue
+    resources :events, only: [:new, :create, :edit, :update, :destroy]
     resources :venues, param: :name, only: [:edit, :update]
   end
   resources :cart_events, only: [:create, :update, :destroy]

@@ -1,5 +1,5 @@
 class Admin::EventsController < Admin::BaseController
-  before_action :set_event, only: [:edit, :update]
+  before_action :set_event, only: [:edit, :update, :destroy]
   before_action :verify_permissions, only: [:edit]
 
   def new
@@ -31,6 +31,12 @@ class Admin::EventsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @event.destroy
+    flash[:success] = "Event Removed Successfully!"
+    redirect_to venue_path(@event.venue)
+  end
+
   private
 
   def event_params
@@ -51,7 +57,7 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def set_event
-    @event = Event.find_by(slug: params[:id])
+    @event = Event.find_by_slug(params[:id])
   end
 
   def verify_permissions
