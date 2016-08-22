@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :orders
+  has_many :user_roles
+  has_many :roles, through: :user_roles
   validates :username, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, presence: true, if: "uid.nil?", on: :create
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
-
-  enum role: %w(customer venue_admin platform_admin)
 
   def date_registered
     created_at.strftime("%m/%d/%Y")
