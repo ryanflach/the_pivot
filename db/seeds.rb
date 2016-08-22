@@ -268,7 +268,7 @@ class Seed
       User.last.roles << Role.find_by(name: 'venue_admin')
       puts "Venue Admin #{i + 1} created."
     end
-    Venues.all.each_with_index do |venue, index|
+    Venue.all.each_with_index do |venue, index|
       venue.update(admin: User.offset(index + 1).first)
     end
   end
