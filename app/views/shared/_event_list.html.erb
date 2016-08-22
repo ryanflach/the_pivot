@@ -30,9 +30,11 @@
               <td>
                   <%= button_to "#{btn_label}", cart_events_path(event_id: event.id), class: "center_button btn btn-#{btn_class}", disabled: status %>
               </td>
-              <td>
-                <%= link_to "Edit", edit_admin_event_path(event), class: "center_button btn btn-default" if current_admin? %>
-              </td>
+              <% if current_admin? %>
+                <td>
+                  <%= link_to "Edit", edit_admin_event_path(event), class: "center_button btn btn-default" %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
