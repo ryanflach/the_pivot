@@ -269,22 +269,23 @@ class Seed
       puts "Venue Admin #{i + 1} created."
     end
     Venue.all.each_with_index do |venue, index|
-      venue.update(admin: User.offset(index + 1).first)
+      venue.update(admin: User.offset(index).first)
     end
   end
 
   def create_orders
-    users = User.where.not(roles: Role.find_by_name('venue_admin'))
-    users.each do |user|
-      10.times do |i|
-        order = user.orders.create!
-        events = Event.offset(i).limit(rand(1..10))
-        order.events << events
-        events.each do |event|
-          order_item = OrderEvent.find_by(order: order, event: event)
-          order_item.update(quantity: rand(1..10))
+    User.all.each do |user|
+      unless user.roles.exists?(name: 'venue_admin')
+        10.times do |i|
+          order = user.orders.create!
+          events = Event.offset(i).limit(rand(1..10))
+          order.events << events
+          events.each do |event|
+            order_item = OrderEvent.find_by(order: order, event: event)
+            order_item.update(quantity: rand(1..10))
+          end
+          puts "#{user.username}: Order #{i + 1} created."
         end
-        puts "#{user.username}: Order #{i + 1} created."
       end
     end
   end
