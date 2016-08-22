@@ -56,7 +56,7 @@ class Seed
       city: 'Bronx',
       state: 'NY',
       capacity: 54251,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/6kpS9z5.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -65,7 +65,7 @@ class Seed
       city: 'Denver',
       state: 'CO',
       capacity: 5000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/SIccgUE.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -74,7 +74,7 @@ class Seed
       city: 'Los Angeles',
       state: 'CA',
       capacity: 2265,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/3FT6OWs.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -83,16 +83,16 @@ class Seed
       city: 'New York',
       state: 'NY',
       capacity: 2804,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/7kSGPAh.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
       name: 'Sydney Opera House',
       city: 'Sydney',
-      state: 'NSW',
+      state: 'AU',
       capacity: 6000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/ZhZQ5qw.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -101,7 +101,7 @@ class Seed
       city: 'New York',
       state: 'NY',
       capacity: 18200,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/AlRnvKR.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -110,7 +110,7 @@ class Seed
       city: 'Denver',
       state: 'CO',
       capacity: 18007,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/7OeaBay.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -119,16 +119,16 @@ class Seed
       city: 'George',
       state: 'WA',
       capacity: 27500,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/Mzv1JU5.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
       name: 'Museum of Modern Art',
-      city: 'San Francisco',
-      state: 'CA',
+      city: 'New York',
+      state: 'NY',
       capacity: 5251,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/APMN5QN.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -137,7 +137,7 @@ class Seed
       city: 'San Diego',
       state: 'CA',
       capacity: 125000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/81CNDWf.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -146,7 +146,7 @@ class Seed
       city: 'State College',
       state: 'PA',
       capacity: 107282,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/9OcLwCU.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -155,7 +155,7 @@ class Seed
       city: 'Glendale',
       state: 'AZ',
       capacity: 63400,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/niiHcUO.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -164,7 +164,7 @@ class Seed
       city: 'St. Paul',
       state: 'MN',
       capacity: 17000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/zIJMgUm.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -173,7 +173,7 @@ class Seed
       city: 'Pittsburgh',
       state: 'PA',
       capacity: 38362,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/ZhpUui3.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -182,7 +182,7 @@ class Seed
       city: 'Arlington',
       state: 'TX',
       capacity: 80000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/Q5qbKTi.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -191,16 +191,16 @@ class Seed
       city: 'Pyongyang',
       state: 'NK',
       capacity: 150000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/LqQAAeN.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
     Venue.create!(
-      name: 'Mall of Asia Concert Grounds',
+      name: 'Mall of Asia Arena',
       city: 'Manila',
       state: 'PI',
-      capacity: 80000,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      capacity: 20000,
+      image_path: 'http://i.imgur.com/hRFfDRE.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -209,7 +209,7 @@ class Seed
       city: 'Barcelona',
       state: 'SP',
       capacity: 99354,
-      image_path: 'http://i.imgur.com/NqWzxPB.jpg',
+      image_path: 'http://i.imgur.com/piLqdVD.jpg',
       admin: User.find_by(username: 'nate@turing.io')
       )
       puts "Venue #{Venue.last.name} created."
@@ -225,7 +225,7 @@ class Seed
           image_path: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200",
           category: category,
           venue: Venue.offset(rand(Venue.count)).first,
-          date: Faker::Time.forward(90, :evening)
+          date: Faker::Time.forward(150, :evening)
         )
         puts "#{category.title}: Event #{i + 1} created."
       end
