@@ -261,7 +261,7 @@ class Seed
   def create_venue_admins
     19.times do |i|
       User.create!(
-        username: "#{Faker::Internet.username}_admin_#{i + 1}",
+        username: "#{Faker::Internet.user_name}_admin_#{i + 1}",
         email: "admin_#{i + 1}_#{Faker::Internet.safe_email}",
         password: "password"
       )
@@ -297,7 +297,6 @@ class Seed
     )
     User.last.roles << Role.where.not(name: 'registered_customer')
     puts "Platform Admin Jorge created."
-    )
   end
 end
 
