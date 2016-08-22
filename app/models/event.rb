@@ -20,6 +20,10 @@ class Event < ApplicationRecord
     venue.name
   end
 
+  def venue_location
+    venue.location
+  end
+
   def past_event?
     status == 'occurred'
   end
