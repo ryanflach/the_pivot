@@ -11,6 +11,10 @@
     overflow: auto;
   }
 
+  #events_list {
+    padding-left: 5%;
+  }
+
   .center {
     width: 70%;
     margin-left: 15%;
