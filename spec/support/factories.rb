@@ -34,21 +34,25 @@ FactoryGirl.define do
     username
     email
     password 'password'
-    roles { [Role.find_or_create_by(name: 'registered_customer')] }
+    roles { [ Role.find_or_create_by(name: 'registered_customer') ] }
 
     factory :venue_admin do
-      roles { [
-        Role.find_or_create_by(name: 'registered_customer'),
-        Role.find_or_create_by(name: 'venue_admin')
-      ] }
+      roles {
+        [
+          Role.find_or_create_by(name: 'registered_customer'),
+          Role.find_or_create_by(name: 'venue_admin')
+        ]
+      }
     end
 
     factory :platform_admin do
-      roles { [
-        Role.find_or_create_by(name: 'registered_customer'),
-        Role.find_or_create_by(name: 'venue_admin'),
-        Role.find_or_create_by(name: 'platform_admin')
-      ] }
+      roles {
+        [
+          Role.find_or_create_by(name: 'registered_customer'),
+          Role.find_or_create_by(name: 'venue_admin'),
+          Role.find_or_create_by(name: 'platform_admin')
+        ]
+      }
     end
   end
 

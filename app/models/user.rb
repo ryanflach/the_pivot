@@ -19,4 +19,16 @@ class User < ApplicationRecord
       new_user.password_digest = auth_info.credentials.secret
     end
   end
+
+  def platform_admin?
+    roles.exists?(name: 'platform_admin')
+  end
+
+  def venue_admin?
+    roles.exists?(name: 'venue_admin')
+  end
+
+  def registered_customer?
+    roles.exists?(name: 'registered_customer')
+  end
 end
