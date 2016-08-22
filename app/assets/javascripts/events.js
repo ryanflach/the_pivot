@@ -14,5 +14,18 @@ $(document).ready(function(){
     });
   });
 
+  $('#yieldcontent').css('padding-top', $('#topnavbar').height() * 0.01);
+
+  $(window).resize(function(){
+    $('#yieldcontent').css('padding-top', $('#topnavbar').height() * 0.01);
+  });
+
+  $('#topnavbar').on('shown.bs.collapse', function () {
+    $('#yieldcontent').css('padding-top', $('#topnavbar').height() * 0.01);
+  });
+
+  $('#topnavbar').on('hidden.bs.collapse', function () {
+    $('#yieldcontent').css('padding-top', $('#topnavbar').height() * 0.01);
+  });
 
 });

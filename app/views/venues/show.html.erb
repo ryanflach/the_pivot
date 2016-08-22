@@ -9,37 +9,49 @@
       <p>
         <strong>Capacity:</strong> <%= @venue.capacity %>
       </p>
+      <% if this_venues_admin? %>
+        <p>
+          <%= link_to 'Add New Event', new_admin_event_path, class: 'center_button btn btn-success' %>
+        </p>
+      <% end %>
     </div>
-      <div class="table-responsive col-md-8 fit-width">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Event Name</th>
-              <th>Category</th>
-              <th>Date</th>
-              <th>Price</th>
-              <th>Purchase</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @venue.events.each do |event| %>
-              <tr id="event-<%= event.id %>">
-                <td><%= event.title %></td>
-                <td><%= event.category.title %></td>
-                <td><%= event.event_date %></td>
-                <td><%= number_to_currency(event.price) %></td>
-                <td>
-                  <%= content_tag :div do %>
-                    <%= button_to "Add to Cart", cart_events_path(event_id: event.id), class: "center_button btn btn-sm btn-primary" %>
-                  <% end %>
-                </td>
-              </tr>
+    <div class="table-responsive col-md-8 fit-width">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th class='text-center'>Purchase</th>
+            <% if this_venues_admin? %>
+              <th class='text-center'>Edit</th>
+              <th class='text-center'>Delete</th>
             <% end %>
-          </tbody>
-        </table>
-      </div>
-
-
-
+          </tr>
+        </thead>
+        <tbody>
+          <% @venue.events.each do |event| %>
+            <tr class="event" id="event-<%= event.id %>">
+              <td><%= link_to event.title, event_path(@venue, event) %></td>
+              <td><%= link_to event.category.title, category_path(event.category) %></td>
+              <td><%= event.event_date %></td>
+              <td><%= number_to_currency(event.price) %></td>
+              <td>
+                <%= button_to "Add to Cart", cart_events_path(event_id: event.id), class: "center_button btn btn-sm btn-primary" %>
+              </td>
+              <% if this_venues_admin? %>
+                <td>
+                  <%= link_to 'Manage Event', edit_admin_event_path(event), class: 'center_button btn btn-sm btn-default' %>
+                </td>
+                <td>
+                  <%= button_to "Delete Event", admin_event_path(event), method: :delete, class: 'center_button btn btn-sm btn-danger' %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

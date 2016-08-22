@@ -5,9 +5,6 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
-.alert {
-  padding-left: 200px;
-}
 
 /* Delete lines 16 & 17 if we want left-sidebar to overlap flash message when animation ends */
 .animated {

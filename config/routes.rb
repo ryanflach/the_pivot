@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :events, only: [:new, :create, :edit, :update]
+    resources :events, only: [:new, :create, :edit, :update, :destroy]
+    resources :venues, param: :name, only: [:edit, :update]
   end
   resources :cart_events, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
