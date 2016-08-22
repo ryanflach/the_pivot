@@ -11,7 +11,7 @@
       </p>
       <% if this_venues_admin? %>
         <p>
-          <%= link_to 'Add Event', new_admin_event_path, class: 'btn btn-default' %>
+          <%= link_to 'Add New Event', new_admin_event_path, class: 'center_button btn btn-success' %>
         </p>
       <% end %>
     </div>
@@ -23,7 +23,11 @@
             <th>Category</th>
             <th>Date</th>
             <th>Price</th>
-            <th>Purchase</th>
+            <th class='text-center'>Purchase</th>
+            <% if this_venues_admin? %>
+              <th class='text-center'>Edit</th>
+              <th class='text-center'>Delete</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -34,10 +38,16 @@
               <td><%= event.event_date %></td>
               <td><%= number_to_currency(event.price) %></td>
               <td>
-                <%= content_tag :div do %>
-                  <%= button_to "Add to Cart", cart_events_path(event_id: event.id), class: "center_button btn btn-sm btn-primary" %>
-                <% end %>
+                <%= button_to "Add to Cart", cart_events_path(event_id: event.id), class: "center_button btn btn-sm btn-primary" %>
               </td>
+              <% if this_venues_admin? %>
+                <td>
+                  <%= link_to 'Manage Event', edit_admin_event_path(event), class: 'center_button btn btn-sm btn-default' %>
+                </td>
+                <td>
+                  <%= button_to "Delete Event", admin_event_path(event), method: :delete, class: 'center_button btn btn-sm btn-danger' %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>

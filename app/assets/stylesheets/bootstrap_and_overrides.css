@@ -150,20 +150,8 @@
     color: rgb(85, 85, 85);
   }
 
-  .btn-danger {
-    background-color: rgb(200, 181, 80);
-    border-color: rgba(85, 85, 85, 0.4);
-    margin-bottom: 20px;
-    color: rgb(85, 85, 85);
-    margin-right: 25px;
-    font-weight: bold;
-  }
-
   .btn-danger:hover {
-    background-color: rgb(200, 181, 80);
-    border-color: rgba(85, 85, 85, 0.4);
-    margin-bottom: 20px;
-    color: rgb(85, 85, 85);
+    background-color: rgb(144, 0, 0);
   }
 
   h1 {

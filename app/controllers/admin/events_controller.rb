@@ -1,5 +1,6 @@
 class Admin::EventsController < Admin::BaseController
-  before_action :set_event, only: [:edit, :update]
+  before_action :set_event, only: [:edit, :update, :destroy]
+  before_action :verify_permissions, only: [:edit]
 
   def new
     @event = Event.new
@@ -20,14 +21,20 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def update
-    if @event.update_attributes(event_params)
-      flash[:success] = "#{@event.title} updated successfully."
+    if @event.update_attributes(params_with_venue)
+      flash[:success] = "Event Updated Successfully!"
       @event.update_image_path
       redirect_to event_path(@event.venue, @event)
     else
       flash.now[:danger] = @event.errors.full_messages.join(', ')
       render :edit
     end
+  end
+
+  def destroy
+    @event.destroy
+    flash[:success] = "Event Removed Successfully!"
+    redirect_to venue_path(@event.venue)
   end
 
   private
@@ -50,7 +57,12 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def set_event
-    @event = Event.find_by(slug: params[:id])
+    @event = Event.find_by_slug(params[:id])
   end
 
+  def verify_permissions
+    unless current_user && @event.venue.admin == current_user
+      render file: '/public/404', status => 404, :layout => true
+    end
+  end
 end
