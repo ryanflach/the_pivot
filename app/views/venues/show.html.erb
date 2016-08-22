@@ -32,9 +32,9 @@
         </thead>
         <tbody>
           <% @venue.events.each do |event| %>
-            <tr id="event-<%= event.id %>">
-              <td><%= event.title %></td>
-              <td><%= event.category.title %></td>
+            <tr class="event" id="event-<%= event.id %>">
+              <td><%= link_to event.title, event_path(@venue, event) %></td>
+              <td><%= link_to event.category.title, category_path(event.category) %></td>
               <td><%= event.event_date %></td>
               <td><%= number_to_currency(event.price) %></td>
               <td>
