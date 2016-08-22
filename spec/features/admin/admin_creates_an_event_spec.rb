@@ -15,7 +15,7 @@ RSpec.feature 'Admin creates an event' do
 
       visit admin_dashboard_index_path
       click_on 'View My Events'
-      click_on 'Add Event'
+      click_on 'Add New Event'
 
       expect(current_path).to eq(new_admin_event_path)
       within('form') do
@@ -109,7 +109,7 @@ RSpec.feature 'Admin creates an event' do
 
       visit events_path
 
-      expect(page).to_not have_link('Add New Event')
+      expect(page).to_not have_button('Add New Event')
     end
 
     scenario 'logged-in user attempts to visit new event path' do
@@ -127,7 +127,7 @@ RSpec.feature 'Admin creates an event' do
     scenario 'visitor visits the events path' do
       visit events_path
 
-      expect(page).to_not have_link('Add New Event')
+      expect(page).to_not have_button('Add New Event')
     end
 
     scenario 'visitor attempts to visit new event path' do
