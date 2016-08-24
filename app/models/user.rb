@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :orders
+  has_many :user_roles
+  has_many :roles, through: :user_roles
   validates :username, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, presence: true, if: "uid.nil?", on: :create
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
-
-  enum role: %w(customer venue_admin platform_admin)
 
   def date_registered
     created_at.strftime("%m/%d/%Y")
@@ -17,6 +17,19 @@ class User < ApplicationRecord
       new_user.username        = auth_info.extra.raw_info.screen_name
       new_user.oauth_token     = auth_info.credentials.token
       new_user.password_digest = auth_info.credentials.secret
+      new_user.roles << Role.find_by_name("registered_customer")
     end
+  end
+
+  def platform_admin?
+    roles.exists?(name: 'platform_admin')
+  end
+
+  def venue_admin?
+    roles.exists?(name: 'venue_admin')
+  end
+
+  def registered_customer?
+    roles.exists?(name: 'registered_customer')
   end
 end
