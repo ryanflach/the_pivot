@@ -12,8 +12,9 @@
             <th>Date</th>
             <th>Price</th>
             <th class="text-center">Purchase</th>
-            <% if current_admin? %>
+            <% if venue_admin? %>
               <th class="text-center">Edit</th>
+              <th class="text-center">Delete</th>
             <% end %>
           </tr>
         </thead>
@@ -30,9 +31,10 @@
               <td>
                   <%= button_to "#{btn_label}", cart_events_path(event_id: event.id), class: "center_button btn btn-#{btn_class}", disabled: status %>
               </td>
-              <% if current_admin? %>
+              <% if platform_admin? || event.venue == current_admins_venue %>
                 <td>
                   <%= link_to "Edit", edit_admin_event_path(event), class: "center_button btn btn-default" %>
+                  <%= link_to "Delete", admin_event_path(event), method: :delete, class: "center_button btn btn-default" %>
                 </td>
               <% end %>
             </tr>

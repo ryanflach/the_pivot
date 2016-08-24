@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-  include UsersHelper
-
-  before_action :verify_logged_in, only: [:show, :edit]
-
   def new
     @user = User.new
   end
@@ -10,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.roles << Role.find_by_name("registered_customer")
       session[:user_id] = @user.id
       send_welcome_email(@user)
       flash[:success] = "Account created successfully!"
@@ -21,20 +18,26 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to admin_dashboard_index_path if current_admin?
+    redirect_to admin_dashboard_index_path if current_user.venue_admin?
   end
 
   def edit
-    if current_user.id.to_s != params[:id]
-      flash[:danger] = "You can only edit your own account"
-      redirect_to edit_user_path(current_user)
+    if current_user.platform_admin?
+      session[:last_url] = request.referrer
+    elsif current_user.id.to_s != params[:id]
+      render file: '/public/404', status => 404, :layout => true
     end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to dashboard_path
+      flash[:success] = "Account Updated Successfully!"
+      if session[:last_url]
+        redirect_to session[:last_url]
+      else
+        redirect_to dashboard_path
+      end
     else
       render :edit
     end

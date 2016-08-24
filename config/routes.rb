@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :events, only: [:new, :create, :edit, :update, :destroy]
-    resources :venues, param: :name, only: [:edit, :update]
+    resources :venues, param: :name, only: [:edit, :update, :create, :destroy]
   end
   resources :cart_events, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
   resources :charges
-  resources :venues, only: [:index]
+  resources :venues, only: [:index, :new, :create]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

@@ -1,9 +1,9 @@
 <div class="page-content">
-  <h1>Edit Venue</h1>
+  <h1>Venue Application</h1>
   <div class="well col-md-7 col-md-offset-2">
-    <%= form_for(@venue, url: admin_venue_path(@venue)) do |f| %>
+    <%= form_for @venue do |f| %>
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :name, 'Venue Name' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       <div class="form-group">
@@ -18,8 +18,13 @@
         <%= f.label :capacity %>
         <%= f.number_field :capacity, class: 'form-control' %>
       </div>
-      <%= f.submit "Update Venue", class: 'btn btn-primary top-margin' %>
-      <%= link_to "Cancel", admin_dashboard_index_path, class: 'btn btn-primary top-margin' %>
+      <div class="form-group">
+        <%= f.label :image_path, 'Image URL' %>
+        <%= f.text_field :image_path, class: 'form-control' %>
+      </div>
+      <%= f.hidden_field :status, value: 'offline' %>
+      <%= f.submit "Submit Application", class: 'btn btn-primary top-margin' %>
+      <%= link_to "Cancel", dashboard_path, class: 'btn btn-primary top-margin' %>
     <% end %>
   </div>
 </div>
