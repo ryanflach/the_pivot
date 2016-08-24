@@ -2,13 +2,12 @@
   <div class="well col-md-10 padded">
     <h1><%= @venue.name %></h1>
     <%= image_tag(@venue.image_path, alt: "#{@venue.name} pic", class: 'venue-image') %>
-    <div>
-      <p>
-        <strong>Location:</strong> <%= @venue.location %>
-      </p>
-      <p>
-        <strong>Capacity:</strong> <%= @venue.capacity %>
-      </p>
+    <div class="venue-details">
+      <% if platform_admin? %>
+        <p><strong>Venue Admin:</strong> <%= @venue.admin.username %> (<%= link_to 'Edit', edit_user_path(@venue.admin) %>)</p>
+      <% end %>
+      <p><strong>Location:</strong> <%= @venue.location %></p>
+      <p><strong>Capacity:</strong> <%= @venue.capacity %></p>
       <% if this_venues_admin? || platform_admin? %>
         <p>
           <%= link_to 'Add New Event', new_admin_event_path, class: 'center_button btn btn-success' %>
@@ -18,7 +17,7 @@
             <%= link_to 'Delete Venue', admin_venue_path(@venue), method: :delete, class: 'center_button btn btn-danger btn-md top-margin' %>
           <% end %>
           <br /><br />
-          <h4><strong><%= link_to '<< Back', request.referrer %></strong></h4> 
+          <h4><strong><%= link_to '<< Back', request.referrer %></strong></h4>
         </p>
       <% end %>
     </div>
