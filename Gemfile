@@ -58,6 +58,6 @@ gem 'rails_12factor', group: :production
 gem 'figaro'
 gem 'stripe'
 gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem 'omniauth-twitter'
 gem 'simplecov', require: false, group: :test
