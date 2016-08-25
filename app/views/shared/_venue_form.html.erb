@@ -1,4 +1,4 @@
-<div class="well col-md-7 col-md-offset-2">
+<div class="well center-form">
   <%= form_for(@venue, url: path) do |f| %>
     <div class="form-group">
       <%= f.label :name, 'Venue Name' %>
@@ -21,7 +21,7 @@
       <%= f.text_field :image_path, class: 'form-control' %>
     </div>
     <%= f.hidden_field :status, value: 'offline' %>
-    <%= f.submit label, class: 'btn btn-primary top-margin' %>
+    <%= f.submit label, class: 'btn btn-success top-margin' %>
     <%= link_to "Cancel", cancel_path, class: 'btn btn-primary top-margin' %>
   <% end %>
 </div>
