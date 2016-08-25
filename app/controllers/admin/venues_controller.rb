@@ -8,6 +8,7 @@ class Admin::VenuesController < ApplicationController
   def update
     if @venue.update_attributes(venue_params)
       flash[:success] = "#{@venue.name} Updated Successfully!"
+      @venue.update_image_path
       redirect_to venue_path(@venue)
     else
       flash.now[:danger] = @venue.errors.full_messages.join(', ')
@@ -17,7 +18,8 @@ class Admin::VenuesController < ApplicationController
 
   def create
     @venue.update(status: "online")
-    @venue.admin.roles << Role.find_by_name("venue_admin")
+    @venue.admin.roles << venue_admin
+    send_outcome_email(true)
     flash[:success] = "#{@venue.name} Approved!"
     redirect_to admin_dashboard_index_path
   end
@@ -25,6 +27,7 @@ class Admin::VenuesController < ApplicationController
   def destroy
     @venue.destroy
     if from_admin_dash?
+      send_outcome_email(false)
       flash[:success] = "#{@venue.name} Declined!"
       redirect_to admin_dashboard_index_path
     else
@@ -36,12 +39,11 @@ class Admin::VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(
-      :name,
-      :city,
-      :state,
-      :capacity
-    )
+    params.require(:venue).permit(:name,
+                                  :city,
+                                  :state,
+                                  :capacity,
+                                  :upload_image)
   end
 
   def set_venue
@@ -50,11 +52,15 @@ class Admin::VenuesController < ApplicationController
 
   def verify_owner
     unless current_user == @venue.admin || current_user.platform_admin?
-      render file: '/public/404', status => 404, layout: true
+      render_404
     end
   end
 
   def from_admin_dash?
     "/admin/#{request.referrer.split('/').last}" == admin_dashboard_index_path
+  end
+
+  def send_outcome_email(outcome)
+    UserNotifierMailer.send_application_outcome_email(@venue, outcome).deliver
   end
 end

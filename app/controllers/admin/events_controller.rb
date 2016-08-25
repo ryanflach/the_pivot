@@ -23,7 +23,6 @@ class Admin::EventsController < ApplicationController
   def update
     if @event.update_attributes(params_with_venue)
       flash[:success] = "Event Updated Successfully!"
-      @event.update_image_path
       redirect_to event_path(@event.venue, @event)
     else
       flash.now[:danger] = @event.errors.full_messages.join(', ')
@@ -67,7 +66,7 @@ class Admin::EventsController < ApplicationController
   def verify_permissions
     unless current_user.platform_admin? ||
            @event.venue.admin == current_admins_venue.admin
-      render file: '/public/404', status => 404, :layout => true
+      render_404
     end
   end
 end
