@@ -1,5 +1,5 @@
 <div class="well center-form">
-  <%= form_for(@venue, url: path) do |f| %>
+  <%= form_for(@venue, url: path, html: {multipart: true}) do |f| %>
     <div class="form-group">
       <%= f.label :name, 'Venue Name' %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -17,11 +17,15 @@
       <%= f.number_field :capacity, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :image_path, 'Image URL' %>
-      <%= f.text_field :image_path, class: 'form-control' %>
+      <%= f.label :upload_image, 'Image' %>
+      <%= f.file_field :upload_image, class: 'center_button' %>
     </div>
     <%= f.hidden_field :status, value: 'offline' %>
     <%= f.submit label, class: 'btn btn-success top-margin' %>
-    <%= link_to "Cancel", cancel_path, class: 'btn btn-primary top-margin' %>
+    <% if platform_admin? %>
+      <%= link_to "Cancel", request.referrer, class: 'btn btn-primary top-margin' %>
+    <% else %>
+      <%= link_to "Cancel", cancel_path, class: 'btn btn-primary top-margin' %>
+    <% end %>
   <% end %>
 </div>
