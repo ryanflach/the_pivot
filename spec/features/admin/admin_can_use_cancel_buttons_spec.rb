@@ -108,12 +108,10 @@ RSpec.feature "Admin can use cancel buttons" do
 
       click_on "Manage My Account"
 
-      expect(page).to have_content "Edit Account"
       expect(current_path).to eq edit_user_path(admin)
 
       click_on "Cancel"
 
-      expect(page).to have_content "Admin Dashboard"
       expect(current_path).to eq admin_dashboard_index_path
     end
 
@@ -136,8 +134,37 @@ RSpec.feature "Admin can use cancel buttons" do
       expect(current_path).to eq admin_dashboard_index_path
     end
 
+    scenario "admin clicks back from manage events index page" do
+      create(:venue)
+      admin = create(:platform_admin)
+
+      allow_any_instance_of(ApplicationController).
+        to receive(:current_user).
+        and_return(admin)
+
+      visit admin_dashboard_index_path
+
+      click_on "Manage Events"
+
+      expect(current_path).to eq events_path
+
+      click_on "Back"
+
+      expect(current_path).to eq admin_dashboard_index_path
+
+      visit venues_path
+
+      click_on "All Events"
+
+      expect(current_path).to eq events_path
+
+      click_on "Back"
+
+      expect(current_path).to eq venues_path
+    end
+
     scenario "admin clicks cancel from new event page" do
-      venue = create(:venue)
+      create(:venue)
       admin = create(:platform_admin)
 
       allow_any_instance_of(ApplicationController).
@@ -171,10 +198,62 @@ RSpec.feature "Admin can use cancel buttons" do
 
       click_on "Cancel"
 
+      expect(current_path).to eq venue_path(venue.slug)
+    end
+
+    scenario "admin clicks back from view venue page" do
+      venue = create(:venue)
+      admin = create(:platform_admin)
+
+      allow_any_instance_of(ApplicationController).
+        to receive(:current_user).
+        and_return(admin)
+
+      visit venues_path
+
+      within "#venue-#{venue.id}" do
+        click_on "View Venue"
+      end
+
+      expect(current_path).to eq venue_path(venue.slug)
+
+      click_on "<< Back"
+
+      expect(current_path).to eq venues_path
+    end
+
+    scenario "admin clicks cancel from edit venue page" do
+      venue = create(:venue)
+      admin = create(:platform_admin)
+
+      allow_any_instance_of(ApplicationController).
+        to receive(:current_user).
+        and_return(admin)
+
+      visit venues_path
+
+      within "#venue-#{venue.id}" do
+        click_on "Edit"
+      end
+
+      expect(current_path).to eq edit_admin_venue_path(venue.slug)
+
+      click_on "Cancel"
+
+      expect(current_path).to eq venues_path
+
       visit venue_path(venue.slug)
+
+      click_on "Edit Venue"
+
+      expect(current_path).to eq edit_admin_venue_path(venue.slug)
+
+      click_on "Cancel"
+
+      expect(current_path).to eq venue_path(venue.slug)
     end
 
-    scenario "admin clicks back from view venue page" do
+    scenario "admin clicks cancel from edit venue admin page" do
       venue = create(:venue)
       admin = create(:platform_admin)
 
@@ -182,38 +261,47 @@ RSpec.feature "Admin can use cancel buttons" do
         to receive(:current_user).
         and_return(admin)
 
-      visit venues_path
+      visit venue_path(venue.slug)
 
-      within "#venue-#{venue.id}" do
-        click_on "View Venue"
-      end
+      click_on "Edit"
+
+      expect(current_path).to eq edit_user_path(venue.user_id)
+
+      click_on "Cancel"
 
       expect(current_path).to eq venue_path(venue.slug)
-
-      click_on "<< Back"
-
-      expect(current_path).to eq venues_path
     end
 
-    scenario "admin clicks back from view venue page" do
-      venue = create(:venue)
+    scenario "admin clicks cancel from edit event page" do
+      event = create(:event)
+      create(:venue)
       admin = create(:platform_admin)
 
       allow_any_instance_of(ApplicationController).
         to receive(:current_user).
         and_return(admin)
 
-      visit venues_path
+      visit event_path(event.venue, event)
 
-      within "#venue-#{venue.id}" do
-        click_on "View Venue"
+      click_on "Edit"
+
+      expect(current_path).to eq edit_admin_event_path(event)
+
+      click_on "Cancel"
+
+      expect(current_path).to eq event_path(event.venue, event)
+
+      visit events_path
+
+      within("#event-#{event.id}") do
+        click_on "Edit"
       end
 
-      expect(current_path).to eq venue_path(venue.slug)
+      expect(current_path).to eq(edit_admin_event_path(event))
 
-      click_on "<< Back"
+      click_on "Cancel"
 
-      expect(current_path).to eq venues_path
+      expect(current_path).to eq events_path
     end
   end
 end
