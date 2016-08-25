@@ -21,17 +21,20 @@ RSpec.feature "Admin can edit a venue" do
       fill_in "City", with: "Compton"
       fill_in "State", with: "CA"
       fill_in "Capacity", with: 100000
+      attach_file('Image', 'spec/files/images/test_image.png')
       click_on "Update Venue"
 
+      expect(Venue.last.image_path).
+        to_not eq("http://i.imgur.com/5p6sEsX.jpg")
       expect(current_path).to eq(venue_path(Venue.first))
       expect(page).to have_content("Cubs Stadium Updated Successfully!")
-      expect(page).to have_content("Cubs Stadium")
-
-      visit venue_path('cubs-stadium')
-
-      expect(page).to have_content("Cubs Stadium")
-      expect(page).to have_content("Compton, CA")
-      expect(page).to have_content("100000")
+      within('.event-show') do
+        expect(page).to have_content("Cubs Stadium")
+        expect(page).to have_content("Compton, CA")
+        expect(page).to have_content("100000")
+        expect(page).
+          to have_css("img[src*='#{Venue.last.image_path}']")
+      end
     end
 
     scenario "when they Manage Venue with invalid information" do
@@ -94,16 +97,21 @@ RSpec.feature "Admin can edit a venue" do
       fill_in "City", with: "Chicago"
       fill_in "State", with: "IL"
       fill_in "Capacity", with: 15
+      attach_file('Image', 'spec/files/images/test_image.png')
       click_on "Update Venue"
 
       expect(current_path).to eq(venue_path(Venue.first))
       expect(page).
         to have_content("#{Venue.first.name} Updated Successfully!")
+      expect(Venue.first.image_path).
+        to_not eq("http://i.imgur.com/5p6sEsX.jpg")
 
       within('.event-show') do
         expect(page).to have_content("Cubs Stadium")
         expect(page).to have_content("Chicago, IL")
         expect(page).to have_content(15)
+        expect(page).
+          to have_css("img[src*='#{Venue.first.image_path}']")
       end
     end
 
